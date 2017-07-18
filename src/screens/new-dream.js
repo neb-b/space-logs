@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
 const ProfileScreen = () => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      Profile Screen
+      New Dream
     </Text>
   </View>
 );
 
 ProfileScreen.navigationOptions = {
-  title: 'Profile',
+  title: 'New Dream',
 };
 
 export default ProfileScreen;
