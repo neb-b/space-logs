@@ -23,9 +23,9 @@ const MainScreen = ({dispatch}) => (
 );
 
 MainScreen.navigationOptions = {
-  title: 'Home',
+  title: 'Dreams',
 };
 
-const mapStateToProps = state => ({});
-
-export default connect(mapStateToProps)(MainScreen);
+// why do I need to connect?
+// not sure if there is a better way to pass down dispatch
+export default connect(s => s)(MainScreen);
