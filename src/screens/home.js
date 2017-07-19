@@ -1,31 +1,25 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import { NavigationActions } from 'react-navigation';
-import { connect } from 'react-redux';
+import { Text, View, Button } from 'react-native';
+import Screen from "./internal/screen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
+class SettingsScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Dreams',
+    headerRight: (
+      <Button
+        title="New Dream"
+        onPress={() => navigation.navigate('NewDream')}
+      />
+    ),
+  })
 
-const MainScreen = ({dispatch}) => (
-  <View style={styles.container}>
-    <Button
-      onPress={() =>
-        dispatch(NavigationActions.navigate({ routeName: 'NewDream' }))}
-      title="New Dream"
-    />
-  </View>
-);
+  render() {
+    return (
+      <Screen scroll>
+        <Text>Dreams</Text>
+      </Screen>
+    );
+  }
+}
 
-MainScreen.navigationOptions = {
-  title: 'Dreams',
-};
-
-// why do I need to connect?
-// not sure if there is a better way to pass down dispatch
-export default connect(s => s)(MainScreen);
+export default SettingsScreen;

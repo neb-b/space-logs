@@ -1,30 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import Screen from "./internal/screen";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+class SettingsScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Settings',
+    headerRight: (
+      <Button
+        title="New Dream"
+        onPress={() => navigation.navigate('NewDream')}
+      />
+    ),
+  })
 
-const SettingsScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Settings
-    </Text>
-  </View>
-);
-
-SettingsScreen.navigationOptions = {
-  title: 'Settings',
-};
+  render() {
+    return (
+      <Screen scroll>
+        <Text>Settings</Text>
+      </Screen>
+    );
+  }
+}
 
 export default SettingsScreen;

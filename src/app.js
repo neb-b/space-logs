@@ -1,20 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addNavigationHelpers, StackNavigator } from 'react-navigation';
-import AppNavigator from "./navigation"
+import { Provider } from 'react-redux';
 
-const AppWithNavigationState = ({ dispatch, nav }) => (
-  <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
-);
+import reducer from './redux/reducers';
+import AppWithNavigationState from './app-with-nav-state';
+import store from "./store";
 
-AppWithNavigationState.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  nav: PropTypes.object.isRequired,
-};
+const App = () =>
+  <Provider store={store}>
+    <AppWithNavigationState />
+  </Provider>
 
-const mapStateToProps = state => ({
-  nav: state.nav,
-});
-
-export default connect(mapStateToProps)(AppWithNavigationState);
+export default App;
