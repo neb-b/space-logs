@@ -12,15 +12,43 @@ import NewDreamScreen from './screens/new-dream'
 import SettingsScreen from './screens/settings'
 import StatsScreen from './screens/stats'
 
-const TabNavigation = TabNavigator({
-  Home: { screen: HomeScreen },
-  Stats: { screen: StatsScreen },
-  Settings: { screen: SettingsScreen },
-})
+const TabNavigation = TabNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Stats: { screen: StatsScreen },
+    Settings: { screen: SettingsScreen },
+  },
+  {
+    // Home tabNav styles/settings
+    swipeEnabled: true,
+    animationEnabled: true,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+      inactiveTintColor: '#c6c6c6',
+      activeTintColor: '#FFDD45',
+      labelStyle: {
+        fontSize: 12,
+      },
+      style: {
+        backgroundColor: '#332567',
+      },
+    },
+  }
+)
 
-const AppNavigator = StackNavigator({
-  Main: { screen: TabNavigation },
-  NewDream: { screen: NewDreamScreen },
-})
+const headerOptions = {
+  headerTintColor: 'white',
+  headerStyle: {
+    backgroundColor: '#332567',
+  },
+}
+
+const AppNavigator = StackNavigator(
+  {
+    Main: { screen: TabNavigation, navigationOptions: headerOptions },
+    NewDream: { screen: NewDreamScreen, navigationOptions: headerOptions },
+  },
+  { headerMode: 'screen' }
+)
 
 export default AppNavigator
