@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 import Screen from './internal/screen'

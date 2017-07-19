@@ -6,7 +6,9 @@
     "precommit": "lint-staged",
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
-    "ios": "react-native-scripts ios"
+    "ios": "react-native-scripts ios",
+    "flow": "flow",
+    "flow:watch": "flow-watch"
   },
   "lint-staged": {
     "*.js": [
@@ -20,6 +22,7 @@
     ]
   },
   "devDependencies": {
+    "flow-bin": "0.45.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.2",
     "prettier": "^1.5.3",

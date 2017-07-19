@@ -14,11 +14,7 @@ class SettingsScreen extends React.Component {
   })
 
   render() {
-    return (
-      <Screen scroll>
-        <Text>Dreams</Text>
-      </Screen>
-    )
+    return <Screen scroll />
   }
 }
 
