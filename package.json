@@ -1,15 +1,22 @@
 {
   "name": "space_logs",
   "version": "0.0.1",
-  "devDependencies": {
-    "react-native-scripts": "0.0.50",
-    "redux-logger": "^3.0.6"
-  },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
+    "precommit": "lint-staged",
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "ios": "react-native-scripts ios"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --no-semi --trailing-comma es5 --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "react-native-scripts": "0.0.50",
+    "redux-logger": "^3.0.6"
   },
   "dependencies": {
     "expo": "^18.0.3",

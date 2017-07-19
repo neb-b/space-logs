@@ -1,6 +1,6 @@
-import React from 'react';
-import { Text, View, Button } from 'react-native';
-import Screen from "./internal/screen";
+import React from 'react'
+import { Text, View, Button } from 'react-native'
+import Screen from './internal/screen'
 
 class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -18,8 +18,8 @@ class SettingsScreen extends React.Component {
       <Screen scroll>
         <Text>Settings</Text>
       </Screen>
-    );
+    )
   }
 }
 
-export default SettingsScreen;
+export default SettingsScreen

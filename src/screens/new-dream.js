@@ -1,16 +1,11 @@
-import React from 'react';
-import { Text, View, Button } from 'react-native';
-import Screen from "./internal/screen";
+import React from 'react'
+import { Text, View, Button } from 'react-native'
+import Screen from './internal/screen'
 
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Settings',
-    headerRight: (
-      <Button
-        title="Save"
-        onPress={() => navigation.goBack()}
-      />
-    ),
+    headerRight: <Button title="Save" onPress={() => navigation.goBack()} />,
   })
 
   render() {
@@ -18,8 +13,8 @@ class NewDreamScreen extends React.Component {
       <Screen>
         <Text>Settings</Text>
       </Screen>
-    );
+    )
   }
 }
 
-export default NewDreamScreen;
+export default NewDreamScreen

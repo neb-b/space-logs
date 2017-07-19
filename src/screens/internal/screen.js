@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ScrollView } from "react-native"
+import { View, ScrollView } from 'react-native'
 
 /*
   Screen wrapper element.
@@ -7,7 +7,7 @@ import { View, ScrollView } from "react-native"
 */
 
 const Screen = ({ children, scroll }) => {
-  const WrapperEl = scroll ? ScrollView : View;
+  const WrapperEl = scroll ? ScrollView : View
   return (
     <WrapperEl>
       {children}
@@ -15,4 +15,4 @@ const Screen = ({ children, scroll }) => {
   )
 }
 
-export default Screen;
+export default Screen
