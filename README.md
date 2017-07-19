@@ -1,6 +1,6 @@
-## Space Logs
+# Space Logs
 
-Log your dreams with Space Logs
+Log your dreams
 
 ### Development
 
