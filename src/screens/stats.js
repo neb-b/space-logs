@@ -9,7 +9,12 @@ import HeaderButton from './internal/header-button'
 class StatsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Stats',
-    headerRight: <HeaderButton type="NewDream" navigation={navigation} />,
+    headerRight: (
+      <HeaderButton
+        type="newDream"
+        onPress={() => navigation.navigate('NewDream')}
+      />
+    ),
     tabBarIcon: ({ focused }) => <TabIcon focused={focused} page="stats" />,
   })
 

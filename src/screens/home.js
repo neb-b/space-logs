@@ -7,7 +7,12 @@ import HeaderButton from './internal/header-button'
 class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Dreams',
-    headerRight: <HeaderButton type="NewDream" navigation={navigation} />,
+    headerRight: (
+      <HeaderButton
+        type="newDream"
+        onPress={() => navigation.navigate('NewDream')}
+      />
+    ),
     tabBarIcon: ({ focused }) => {
       return <TabIcon focused={focused} page="settings" />
     },
