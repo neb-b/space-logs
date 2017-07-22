@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTRootView.m \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTRootViewDelegate.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTRootViewInternal.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTRootContentView.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTView.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTTouchHandler.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Modules/RCTUIManager.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTViewManager.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/seanyesmunt/Workspace/space_logs/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/seanyesmunt/Workspace/space_logs/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/seanyesmunt/Workspace/space_logs/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/seanyesmunt/Workspace/space_logs/node_modules/react-native/React/Views/UIView+React.h

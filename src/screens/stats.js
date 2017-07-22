@@ -9,6 +9,7 @@ import HeaderButton from './internal/header-button'
 class StatsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Stats',
+    path: 'stats',
     headerRight: (
       <HeaderButton
         type="newDream"

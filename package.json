@@ -1,12 +1,10 @@
 {
   "name": "space_logs",
   "version": "0.0.1",
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "precommit": "lint-staged",
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "ios": "react-native-scripts ios",
+    "start": "react-native start",
+    "ios": "react-native run-ios",
     "flow": "flow",
     "flow:watch": "flow-watch"
   },
@@ -16,21 +14,14 @@
       "git add"
     ]
   },
-  "rnpm": {
-    "assets": [
-      "node_modules/react-native-vector-icons/fonts"
-    ]
-  },
   "devDependencies": {
     "flow-bin": "0.45.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.2",
     "prettier": "^1.5.3",
-    "react-native-scripts": "0.0.50",
     "redux-logger": "^3.0.6"
   },
   "dependencies": {
-    "expo": "^18.0.3",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.45.1",
     "react-native-vector-icons": "^4.2.0",

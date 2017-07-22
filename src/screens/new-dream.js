@@ -7,6 +7,7 @@ import HeaderButton from './internal/header-button'
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'New Dream',
+    path: 'dreams/new',
     headerRight: (
       <HeaderButton text="Save" onPress={() => navigation.goBack()} />
     ),

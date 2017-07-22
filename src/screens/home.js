@@ -7,6 +7,7 @@ import HeaderButton from './internal/header-button'
 class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Dreams',
+    path: 'dreams',
     headerRight: (
       <HeaderButton
         type="newDream"
