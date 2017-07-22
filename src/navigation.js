@@ -38,6 +38,16 @@ const TabNavigation = TabNavigator(
   }
 )
 
+const NewDreamNavigation = StackNavigator(
+  {
+    initial: { screen: NewDreamScreen },
+  },
+  {
+    mode: 'modal',
+    initialRoute: 'initial',
+  }
+)
+
 const headerOptions = {
   headerTintColor: 'white',
   headerStyle: {
@@ -48,7 +58,7 @@ const headerOptions = {
 const AppNavigator = StackNavigator(
   {
     Main: { screen: TabNavigation, navigationOptions: headerOptions },
-    NewDream: { screen: NewDreamScreen, navigationOptions: headerOptions },
+    NewDream: { screen: NewDreamNavigation },
   },
   { headerMode: 'screen' }
 )

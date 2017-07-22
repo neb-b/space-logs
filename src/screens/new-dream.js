@@ -8,6 +8,7 @@ class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'New Dream',
     path: 'dreams/new',
+    header: null,
     headerRight: (
       <HeaderButton text="Save" onPress={() => navigation.goBack()} />
     ),
