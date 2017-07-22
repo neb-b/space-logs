@@ -3,6 +3,7 @@ import React from 'react'
 import { Text, View, Button } from 'react-native'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
+import NewDreamView from '../components/new-dream-view'
 
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -15,11 +16,7 @@ class NewDreamScreen extends React.Component {
   })
 
   render() {
-    return (
-      <Screen>
-        <Text>New Dream</Text>
-      </Screen>
-    )
+    return <NewDreamView />
   }
 }
 
