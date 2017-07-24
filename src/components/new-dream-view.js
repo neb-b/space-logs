@@ -6,34 +6,46 @@ import styles from './new-dream-view/styles'
 
 const starConfig = {
   number: 75,
-  maxSize: 4,
+  maxSize: 2,
+  colors: ['#ffa585', '#ae8fff', '#ff8fdc', '#8fc6ff'],
 }
 
-const { height: screenHeight, width: screenWidth } = Dimensions.get('window')
+const { height: HEIGHT, width: WIDTH } = Dimensions.get('window')
+
 const getStarStyles = () => {
-  const top = Math.floor(Math.random() * screenHeight)
-  const left = Math.floor(Math.random() * screenWidth)
-  const radius = Math.floor(Math.random() * starConfig.maxSize)
-  const starColors = ['#CF7757', '#6338CF', '#FF11B4', '#987CDF', '#8bc4ff']
+  const radius = Math.random() * starConfig.maxSize + 0.5
+  const starColors = starConfig.colors
   const starColor = starColors[Math.floor(Math.random() * starColors.length)]
-  const starIntensity = Math.floor(Math.random() * 25) + 75
-  const backgroundColor = `${starColor}${('0' + starIntensity).slice(-2)}`
 
   return {
-    top,
-    left,
     height: radius,
     width: radius,
     borderRadius: radius / 2,
-    backgroundColor,
+    backgroundColor: '#fff',
+    shadowColor: starColor,
+    shadowOpacity: 1,
+    shadowRadius: 5,
   }
+}
+
+const getStarLocation = () => {
+  const top = Math.floor(Math.random() * HEIGHT)
+  const left = Math.floor(Math.random() * WIDTH)
+
+  return { top, left }
 }
 
 const renderStars = () => {
   const stars = []
 
   for (let i = 0; i < starConfig.number; i++) {
-    const star = () => <View style={[styles.star, { ...getStarStyles() }]} />
+    const star = () => {
+      const starLocation = getStarLocation()
+      const starStyle = getStarStyles()
+
+      return <View style={[styles.star, starLocation, starStyle]} />
+    }
+
     stars.push(star)
   }
 
