@@ -15,7 +15,7 @@ class SettingsScreen extends React.Component {
       />
     ),
     tabBarIcon: ({ focused }) => {
-      return <TabIcon focused={focused} page="settings" />
+      return <TabIcon focused={focused} page="newDream" />
     },
   })
 

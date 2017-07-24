@@ -27,12 +27,12 @@ const TabNavigation = TabNavigator(
     tabBarPosition: 'bottom',
     tabBarOptions: {
       inactiveTintColor: '#c6c6c6',
-      activeTintColor: '#FFDD45',
+      activeTintColor: '#fff48f',
       labelStyle: {
         fontSize: 12,
       },
       style: {
-        backgroundColor: '#332567',
+        backgroundColor: '#161616',
       },
     },
   }
@@ -40,18 +40,18 @@ const TabNavigation = TabNavigator(
 
 const NewDreamNavigation = StackNavigator(
   {
-    initial: { screen: NewDreamScreen },
+    NewDream: { screen: NewDreamScreen },
   },
   {
     mode: 'modal',
-    initialRoute: 'initial',
+    initialRoute: 'NewDream',
   }
 )
 
 const headerOptions = {
   headerTintColor: 'white',
   headerStyle: {
-    backgroundColor: '#332567',
+    backgroundColor: '#161616',
   },
 }
 

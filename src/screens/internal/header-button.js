@@ -6,11 +6,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 // will probably have this be a icon map
 const textMap = {
-  newDream: 'fiber-new',
+  newDream: 'playlist-add',
 }
 
 // do something with this
-const buttonColor = '#51cbcf'
+const buttonColor = '#d0b1f9'
 
 const HeaderButton = ({
   type,

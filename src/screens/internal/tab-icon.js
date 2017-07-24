@@ -4,12 +4,12 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const pageMap = {
-  settings: 'settings-system-daydream',
+  newDream: 'settings-system-daydream',
   stats: 'bubble-chart',
   settings: 'settings',
 }
 
-const focusedColor = '#eeed5f'
+const focusedColor = '#fff48f'
 const defaultColor = '#f4f4f4'
 
 const TabIcon = ({ focused, page }: { focused: boolean, page: string }) => {

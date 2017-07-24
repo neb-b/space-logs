@@ -24,10 +24,13 @@ const Steps = () => {
   )
 }
 
-const Header = () => {
+const Header = ({ navigation, screenKey }) => {
   return (
     <View style={styles.headerWrapper}>
-      <TouchableOpacity style={[styles.headerActionBtn, styles.cancel]}>
+      <TouchableOpacity
+        onPress={() => navigation.goBack(screenKey)}
+        style={[styles.headerActionBtn, styles.cancel]}
+      >
         <Text style={styles.headerActionText}>Cancel</Text>
       </TouchableOpacity>
 
@@ -38,11 +41,13 @@ const Header = () => {
   )
 }
 
-export default () => {
+export default props => {
+  console.log('props', props)
+  const { navigation, screenKey } = props
   return (
     <View style={[styles.container]}>
       <Stars />
-      <Header />
+      <Header navigation={navigation} screenKey={screenKey} />
       <Steps />
     </View>
   )
