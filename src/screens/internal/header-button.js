@@ -10,7 +10,7 @@ const textMap = {
 }
 
 // do something with this
-const buttonColor = '#d0b1f9'
+const buttonColor = '#fff48f'
 
 const HeaderButton = ({
   type,
@@ -36,7 +36,7 @@ const HeaderButton = ({
         >
           {text}
         </Text>}
-      {buttonType && <Icon name={buttonType} color={buttonColor} size={40} />}
+      {buttonType && <Icon name={buttonType} color={buttonColor} size={30} />}
     </TouchableOpacity>
   )
 }

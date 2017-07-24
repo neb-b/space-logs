@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Animated, Easing } from 'react-native'
 import { connect } from 'react-redux'
 import {
   addNavigationHelpers,
@@ -24,10 +24,9 @@ const TabNavigation = TabNavigator(
     // Home tabNav styles/settings
     swipeEnabled: true,
     animationEnabled: true,
-    tabBarPosition: 'bottom',
     tabBarOptions: {
       inactiveTintColor: '#c6c6c6',
-      activeTintColor: '#fff48f',
+      activeTintColor: '#d0b1f9',
       labelStyle: {
         fontSize: 12,
       },
@@ -43,7 +42,6 @@ const NewDreamNavigation = StackNavigator(
     NewDream: { screen: NewDreamScreen },
   },
   {
-    mode: 'modal',
     initialRoute: 'NewDream',
   }
 )
@@ -53,6 +51,12 @@ const headerOptions = {
   headerStyle: {
     backgroundColor: '#161616',
   },
+  headerTitleStyle: {
+    fontWeight: '600',
+    fontSize: 20,
+    fontFamily: 'Futura-Medium',
+    marginTop: -5,
+  },
 }
 
 const AppNavigator = StackNavigator(
@@ -60,7 +64,33 @@ const AppNavigator = StackNavigator(
     Main: { screen: TabNavigation, navigationOptions: headerOptions },
     NewDream: { screen: NewDreamNavigation },
   },
-  { headerMode: 'screen' }
+  {
+    headerMode: 'screen',
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 300,
+        easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing,
+      },
+      screenInterpolator: sceneProps => {
+        const { layout, position, scene } = sceneProps
+        const { index } = scene
+
+        const height = layout.initHeight
+        const translateY = position.interpolate({
+          inputRange: [index - 1, index, index + 1],
+          outputRange: [height, 0, 0],
+        })
+
+        const opacity = position.interpolate({
+          inputRange: [index - 1, index - 0.99, index],
+          outputRange: [0, 1, 1],
+        })
+
+        return { opacity, transform: [{ translateY }] }
+      },
+    }),
+  }
 )
 
 export default AppNavigator

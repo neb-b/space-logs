@@ -9,7 +9,7 @@ const pageMap = {
   settings: 'settings',
 }
 
-const focusedColor = '#fff48f'
+const focusedColor = '#d0b1f9'
 const defaultColor = '#f4f4f4'
 
 const TabIcon = ({ focused, page }: { focused: boolean, page: string }) => {
