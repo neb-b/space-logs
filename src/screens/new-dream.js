@@ -18,19 +18,23 @@ class NewDreamScreen extends React.Component {
   }
 }
 
-export default connect(s => {
-  console.log('s.nav', s.nav)
-  const routes = s.nav.routes
-  let screenKey
+const mapStateToProps = ({ nav, newDream }) => {
+  // I'm not sure why react-navigation doesn't give you the screen key
+  // Need to pass it so the 'cancel' back button works properly
+  const routes = nav.routes
+  console.log('nav', nav)
+  let screenId
   for (let i = 0; i < routes.length; i++) {
     if (routes[i].routeName === 'NewDream') {
-      screenKey = routes[i].key
+      screenId = routes[i].key
       break
     }
   }
-  const key = s.nav.routes.forEach
+
   return {
-    nav: s.nav,
-    screenKey,
+    nav: Object.assign({}, nav, { screenId }),
+    newDream,
   }
-})(NewDreamScreen)
+}
+
+export default connect(mapStateToProps)(NewDreamScreen)

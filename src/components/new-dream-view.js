@@ -4,51 +4,17 @@ import React from 'react'
 import { View, Dimensions, TouchableOpacity } from 'react-native'
 import styles from './new-dream-view/styles'
 import Stars from './new-dream-view/stars'
-import Text from './common/text'
-
+import Header from './new-dream-view/header'
+import DreamBuilder from './new-dream-view/dream-builder'
 const { height: HEIGHT, width: WIDTH } = Dimensions.get('window')
 
-const Steps = () => {
-  return (
-    <View style={styles.newDreamWrapper}>
-      <Text style={styles.question}>Did you realize you were dreaming?</Text>
-      <View style={styles.actionsWrapper}>
-        <TouchableOpacity style={[styles.questionAction, styles.yesButton]}>
-          <Text style={[styles.questionActionText]}>Yes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.questionAction, styles.noButton]}>
-          <Text style={[styles.questionActionText]}>No</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-}
-
-const Header = ({ navigation, screenKey }) => {
-  return (
-    <View style={styles.headerWrapper}>
-      <TouchableOpacity
-        onPress={() => navigation.goBack(screenKey)}
-        style={[styles.headerActionBtn, styles.cancel]}
-      >
-        <Text style={styles.headerActionText}>Cancel</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={[styles.headerActionBtn, styles.save]}>
-        <Text style={styles.headerActionText}>Save</Text>
-      </TouchableOpacity>
-    </View>
-  )
-}
-
 export default props => {
-  console.log('props', props)
-  const { navigation, screenKey } = props
+  const { navigation, nav: { screenId } } = props
   return (
     <View style={[styles.container]}>
       <Stars />
-      <Header navigation={navigation} screenKey={screenKey} />
-      <Steps />
+      <Header navigation={navigation} screenId={screenId} />
+      <DreamBuilder />
     </View>
   )
 }
