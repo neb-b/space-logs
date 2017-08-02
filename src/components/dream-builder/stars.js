@@ -35,6 +35,7 @@ const getStarLocation = () => {
   return { top, left }
 }
 
+// using PureComponent instead of a stateless component to avoid re-renders
 class Stars extends PureComponent {
   render() {
     const stars = []
