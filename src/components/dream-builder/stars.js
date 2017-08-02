@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { View, Dimensions } from 'react-native'
 import styles from './styles'
 
@@ -35,25 +35,27 @@ const getStarLocation = () => {
   return { top, left }
 }
 
-const Stars = ({ style = {} }) => {
-  const stars = []
+class Stars extends PureComponent {
+  render() {
+    const stars = []
 
-  for (let i = 0; i < starConfig.number; i++) {
-    const star = () => {
-      const starLocation = getStarLocation()
-      const starStyle = getStarStyles()
+    for (let i = 0; i < starConfig.number; i++) {
+      const star = () => {
+        const starLocation = getStarLocation()
+        const starStyle = getStarStyles()
 
-      return <View style={[styles.star, starLocation, starStyle]} />
+        return <View style={[styles.star, starLocation, starStyle]} />
+      }
+
+      stars.push(star)
     }
 
-    stars.push(star)
+    return (
+      <View>
+        {stars.map((Star, i) => <Star key={i} />)}
+      </View>
+    )
   }
-
-  return (
-    <View style={style}>
-      {stars.map((Star, i) => <Star key={i} />)}
-    </View>
-  )
 }
 
 export default Stars
