@@ -3,8 +3,8 @@ import { View, Dimensions } from 'react-native'
 import styles from './styles'
 
 const starConfig = {
-  number: 75,
-  maxSize: 2,
+  number: 150,
+  maxSize: 1.75,
   colors: ['#febba4', '#b295ff', '#fba7e1', '#a2cefc', '#faf9ff'],
 }
 
@@ -35,7 +35,7 @@ const getStarLocation = () => {
   return { top, left }
 }
 
-const Stars = () => {
+const Stars = ({ style = {} }) => {
   const stars = []
 
   for (let i = 0; i < starConfig.number; i++) {
@@ -50,7 +50,7 @@ const Stars = () => {
   }
 
   return (
-    <View>
+    <View style={style}>
       {stars.map((Star, i) => <Star key={i} />)}
     </View>
   )

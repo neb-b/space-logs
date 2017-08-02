@@ -6,15 +6,14 @@ import styles from './new-dream-view/styles'
 import Stars from './new-dream-view/stars'
 import Header from './new-dream-view/header'
 import DreamBuilder from './new-dream-view/dream-builder'
-const { height: HEIGHT, width: WIDTH } = Dimensions.get('window')
 
 export default props => {
-  const { navigation, nav: { screenId } } = props
+  const { navigation, nav: { screenId }, newDream, toggleDreamEditText } = props
   return (
     <View style={[styles.container]}>
       <Stars />
       <Header navigation={navigation} screenId={screenId} />
-      <DreamBuilder />
+      <DreamBuilder {...newDream} toggleDreamEditText={toggleDreamEditText} />
     </View>
   )
 }

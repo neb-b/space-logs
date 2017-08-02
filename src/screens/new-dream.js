@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
 import NewDreamView from '../components/new-dream-view'
+import { toggleDreamEditText } from '../redux/actions/dream-builder.actions'
 
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -37,4 +38,4 @@ const mapStateToProps = ({ nav, newDream }) => {
   }
 }
 
-export default connect(mapStateToProps)(NewDreamScreen)
+export default connect(mapStateToProps, { toggleDreamEditText })(NewDreamScreen)

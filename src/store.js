@@ -11,9 +11,11 @@ const middleware = () => (__DEV__ ? applyMiddleware(logger) : null)
 const store = createStore(
   reducer,
   undefined,
-  compose(middleware(), autoRehydrate())
+  compose(middleware(), __DEV__ ? autoRehydrate() : null)
 )
 
-persistStore(store, { storage: AsyncStorage })
+if (__DEV__) {
+  persistStore(store, { storage: AsyncStorage })
+}
 
 export default store

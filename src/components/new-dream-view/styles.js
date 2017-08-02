@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#161616',
   },
+
   star: {
     position: 'absolute',
   },
@@ -70,5 +71,42 @@ export default StyleSheet.create({
 
   yesButton: {
     marginTop: 50,
+  },
+
+  textEditor: {
+    flex: 1,
+  },
+
+  dreamBuilder: {
+    marginTop: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 15,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#1d1d1d',
+  },
+  dreamActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  baseDreamAction: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+  },
+  dreamAction: {
+    borderRadius: 10,
+    backgroundColor: '#7958fc',
+  },
+  baseDreamActionText: {
+    fontSize: 16,
+  },
+  activeDreamActionText: {
+    color: '#fff',
+  },
+  whatHappend: {
+    color: '#fafafa',
+    fontSize: 18,
   },
 })
