@@ -10,7 +10,7 @@ import {
 } from 'react-navigation'
 
 import HomeScreen from './screens/home'
-import NewDreamScreen from './screens/new-dream'
+import DreamBuilderScreen from './screens/dream-builder'
 import SettingsScreen from './screens/settings'
 import StatsScreen from './screens/stats'
 
@@ -39,7 +39,7 @@ const TabNavigation = TabNavigator(
 
 const NewDreamNavigation = StackNavigator(
   {
-    NewDream: { screen: NewDreamScreen },
+    NewDream: { screen: DreamBuilderScreen },
   },
   {
     initialRoute: 'NewDream',

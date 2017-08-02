@@ -4,7 +4,7 @@ import { Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
-import NewDreamView from '../components/new-dream-view'
+import DreamBuilderView from '../components/dream-builder'
 import { toggleDreamEditText } from '../redux/actions/dream-builder.actions'
 
 class NewDreamScreen extends React.Component {
@@ -15,7 +15,7 @@ class NewDreamScreen extends React.Component {
   })
 
   render() {
-    return <NewDreamView {...this.props} />
+    return <DreamBuilderView {...this.props} />
   }
 }
 
