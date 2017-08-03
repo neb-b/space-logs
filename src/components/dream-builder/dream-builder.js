@@ -3,14 +3,20 @@ import { View, TouchableOpacity, TextInput } from 'react-native'
 import { AutoGrowingTextInput } from 'react-native-autogrow-textinput'
 import styles from './styles'
 import Text from '../common/text'
-
+import DreamInput from './input'
 // how did you feel when you woke up?
 // did you have anything interesting to eat before you went to sleep
 
 export default props => {
-  console.log('dream builder', props)
-  const { isEditingDreamText, toggleDreamEditText } = props
+  // console.log('dream builder', props)
+  const {
+    isEditingDreamText,
+    toggleDreamEditText,
+    dreamText,
+    updateDreamText,
+  } = props
 
+  // TODO: theres definitely a better way to do this
   const WhatHappenedEl = isEditingDreamText ? View : TouchableOpacity
   const OtherInfoEl = isEditingDreamText ? TouchableOpacity : View
 
@@ -54,7 +60,10 @@ export default props => {
       </View>
       <View style={styles.dreamBuilderContent}>
         {isEditingDreamText
-          ? <Text>Editing the dream</Text>
+          ? <DreamInput
+              dreamText={dreamText}
+              updateDreamText={updateDreamText}
+            />
           : <Text>Other info stuff</Text>}
       </View>
     </View>

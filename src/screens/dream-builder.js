@@ -5,7 +5,11 @@ import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
 import DreamBuilderView from '../components/dream-builder'
-import { toggleDreamEditText } from '../redux/actions/dream-builder.actions'
+import {
+  toggleDreamEditText,
+  updateDreamText,
+  saveDream,
+} from '../redux/actions/dream-builder.actions'
 
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -19,11 +23,11 @@ class NewDreamScreen extends React.Component {
   }
 }
 
-const mapStateToProps = ({ nav, newDream }) => {
+const mapStateToProps = ({ nav, dreamBuilder }) => {
+  console.log('mapStateToProps', dreamBuilder)
   // I'm not sure why react-navigation doesn't give you the screen key
   // Need to pass it so the 'cancel' back button works properly
   const routes = nav.routes
-  console.log('nav', nav)
   let screenId
   for (let i = 0; i < routes.length; i++) {
     if (routes[i].routeName === 'NewDream') {
@@ -34,8 +38,12 @@ const mapStateToProps = ({ nav, newDream }) => {
 
   return {
     nav: Object.assign({}, nav, { screenId }),
-    newDream,
+    dreamBuilder,
   }
 }
 
-export default connect(mapStateToProps, { toggleDreamEditText })(NewDreamScreen)
+export default connect(mapStateToProps, {
+  toggleDreamEditText,
+  updateDreamText,
+  saveDream,
+})(NewDreamScreen)

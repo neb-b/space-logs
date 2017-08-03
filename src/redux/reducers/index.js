@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import nav from './nav'
-import newDream from './new-dream'
+import dreamBuilder from './dream-builder'
+import dreams from './dreams'
 
 export default combineReducers({
   nav,
-  newDream,
+  dreamBuilder,
+  dreams,
 })

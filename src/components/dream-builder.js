@@ -8,12 +8,29 @@ import Header from './dream-builder/header'
 import DreamBuilder from './dream-builder/dream-builder'
 
 export default props => {
-  const { navigation, nav: { screenId }, newDream, toggleDreamEditText } = props
+  console.log('comps/dream-builder', props)
+  const {
+    navigation,
+    nav: { screenId },
+    dreamBuilder,
+    toggleDreamEditText,
+    updateDreamText,
+    saveDream,
+  } = props
   return (
     <View style={[styles.container]}>
       <Stars />
-      <Header navigation={navigation} screenId={screenId} />
-      <DreamBuilder {...newDream} toggleDreamEditText={toggleDreamEditText} />
+      <Header
+        navigation={navigation}
+        screenId={screenId}
+        saveDream={saveDream}
+      />
+      <DreamBuilder
+        {...dreamBuilder}
+        toggleDreamEditText={toggleDreamEditText}
+        updateDreamText={updateDreamText}
+        updateDreamText={updateDreamText}
+      />
     </View>
   )
 }
