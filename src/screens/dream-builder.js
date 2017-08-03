@@ -9,6 +9,7 @@ import {
   toggleDreamEditText,
   updateDreamText,
   saveDream,
+  cancelCreateDream,
 } from '../redux/actions/dream-builder.actions'
 
 class NewDreamScreen extends React.Component {
@@ -24,7 +25,6 @@ class NewDreamScreen extends React.Component {
 }
 
 const mapStateToProps = ({ nav, dreamBuilder }) => {
-  console.log('mapStateToProps', dreamBuilder)
   // I'm not sure why react-navigation doesn't give you the screen key
   // Need to pass it so the 'cancel' back button works properly
   const routes = nav.routes
@@ -46,4 +46,5 @@ export default connect(mapStateToProps, {
   toggleDreamEditText,
   updateDreamText,
   saveDream,
+  cancelCreateDream,
 })(NewDreamScreen)

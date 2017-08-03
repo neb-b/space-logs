@@ -12,7 +12,7 @@ export default props => {
   const {
     isEditingDreamText,
     toggleDreamEditText,
-    dreamText,
+    text,
     updateDreamText,
   } = props
 
@@ -60,10 +60,7 @@ export default props => {
       </View>
       <View style={styles.dreamBuilderContent}>
         {isEditingDreamText
-          ? <DreamInput
-              dreamText={dreamText}
-              updateDreamText={updateDreamText}
-            />
+          ? <DreamInput text={text} updateDreamText={updateDreamText} />
           : <Text>Other info stuff</Text>}
       </View>
     </View>

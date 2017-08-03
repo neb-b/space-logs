@@ -3,11 +3,14 @@ import { View, TouchableOpacity } from 'react-native'
 import Text from '../common/text'
 import styles from './styles'
 
-export default ({ navigation, screenId, saveDream }) => {
+export default ({ navigation, screenId, saveDream, cancelCreateDream }) => {
   return (
     <View style={styles.headerWrapper}>
       <TouchableOpacity
-        onPress={() => navigation.goBack(screenId)}
+        onPress={() => {
+          cancelCreateDream()
+          navigation.goBack(screenId)
+        }}
         style={[styles.headerActionBtn, styles.cancel]}
       >
         <Text style={styles.headerActionText}>Cancel</Text>
@@ -15,7 +18,6 @@ export default ({ navigation, screenId, saveDream }) => {
 
       <TouchableOpacity
         onPress={() => {
-          console.log('saving dream...')
           saveDream()
           navigation.goBack(screenId)
         }}

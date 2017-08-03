@@ -16,7 +16,7 @@ export default class extends PureComponent {
 
   render() {
     const { height } = this.state
-    const { dreamText, updateDreamText } = this.props
+    const { text, updateDreamText } = this.props
 
     return (
       <TextInput
@@ -32,7 +32,7 @@ export default class extends PureComponent {
         onChangeText={text => updateDreamText(text)}
         onContentSizeChange={e =>
           this.updateSize(e.nativeEvent.contentSize.height)}
-        value={dreamText}
+        value={text}
       />
     )
   }
