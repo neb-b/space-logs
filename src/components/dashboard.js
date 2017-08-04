@@ -10,10 +10,13 @@ export default props => {
   const { dreams } = props
   return (
     <View>
-      {dreams.map((dream, i) =>
+      {dreams.map(({ text, dreamOptions = {} }, i) =>
         <View key={i} style={{ borderWidth: 1, borderColor: '#fff' }}>
           <Text>
-            {dream.text}
+            {text}
+          </Text>
+          <Text>
+            {dreamOptions.wasLucid ? 'was lucid' : 'not lucid'}
           </Text>
         </View>
       )}

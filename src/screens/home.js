@@ -22,7 +22,6 @@ class SettingsScreen extends React.Component {
   })
 
   render() {
-    console.log('scren', this.props)
     return (
       <Screen scroll>
         <Dashboard {...this.props} />

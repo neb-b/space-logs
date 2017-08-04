@@ -4,6 +4,7 @@ import { AutoGrowingTextInput } from 'react-native-autogrow-textinput'
 import styles from './styles'
 import Text from '../common/text'
 import DreamInput from './input'
+import ListOfOptions from './list-of-options'
 // how did you feel when you woke up?
 // did you have anything interesting to eat before you went to sleep
 
@@ -14,6 +15,8 @@ export default props => {
     toggleDreamEditText,
     text,
     updateDreamText,
+    updateDreamOptions,
+    dreamOptions,
   } = props
 
   // TODO: theres definitely a better way to do this
@@ -61,7 +64,10 @@ export default props => {
       <View style={styles.dreamBuilderContent}>
         {isEditingDreamText
           ? <DreamInput text={text} updateDreamText={updateDreamText} />
-          : <Text>Other info stuff</Text>}
+          : <ListOfOptions
+              {...dreamOptions}
+              updateDreamOptions={updateDreamOptions}
+            />}
       </View>
     </View>
   )

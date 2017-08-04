@@ -10,6 +10,7 @@ import {
   updateDreamText,
   saveDream,
   cancelCreateDream,
+  updateDreamOptions,
 } from '../redux/actions/dream-builder.actions'
 
 class NewDreamScreen extends React.Component {
@@ -47,4 +48,5 @@ export default connect(mapStateToProps, {
   updateDreamText,
   saveDream,
   cancelCreateDream,
+  updateDreamOptions,
 })(NewDreamScreen)

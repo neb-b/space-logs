@@ -4,11 +4,15 @@ import {
   UPDATE_DREAM_TEXT,
   SAVE_DREAM,
   CANCEL_CREATE_DREAM,
+  UPDATE_DREAM_OPTIONS,
 } from '../constants'
 
 const initialState = {
   isEditingDreamText: true,
   text: '',
+  dreamOptions: {
+    wasLucid: false,
+  },
 }
 
 export default handleActions(
@@ -20,6 +24,10 @@ export default handleActions(
     [UPDATE_DREAM_TEXT]: (state, { payload }) => ({
       ...state,
       text: payload,
+    }),
+    [UPDATE_DREAM_OPTIONS]: (state, { payload }) => ({
+      ...state,
+      dreamOptions: Object.assign({}, state.dreamOptions, payload),
     }),
     // dream will be added to dreams reducer
     // clear out dream info for next addition

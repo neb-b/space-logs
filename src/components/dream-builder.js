@@ -17,6 +17,7 @@ export default props => {
     updateDreamText,
     saveDream,
     cancelCreateDream,
+    updateDreamOptions,
   } = props
   return (
     <View style={[styles.container]}>
@@ -31,7 +32,7 @@ export default props => {
         {...dreamBuilder}
         toggleDreamEditText={toggleDreamEditText}
         updateDreamText={updateDreamText}
-        updateDreamText={updateDreamText}
+        updateDreamOptions={updateDreamOptions}
       />
     </View>
   )
