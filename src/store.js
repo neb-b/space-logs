@@ -7,16 +7,15 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducer from './redux/reducers'
 
-const middleware = () => (__DEV__ ? applyMiddleware(logger, thunk) : null)
+const middleware = () =>
+  __DEV__ ? applyMiddleware(thunk, logger) : applyMiddleware(thunk)
 
 const store = createStore(
   reducer,
   undefined,
-  compose(middleware(), __DEV__ ? autoRehydrate() : null)
+  compose(middleware(), autoRehydrate())
 )
 
-if (__DEV__) {
-  persistStore(store, { storage: AsyncStorage })
-}
+persistStore(store, { storage: AsyncStorage })
 
 export default store

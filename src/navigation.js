@@ -13,6 +13,7 @@ import HomeScreen from './screens/home'
 import DreamBuilderScreen from './screens/dream-builder'
 import SettingsScreen from './screens/settings'
 import StatsScreen from './screens/stats'
+import ViewDreamScreen from './screens/view-dream'
 
 const TabNavigation = TabNavigator(
   {
@@ -43,28 +44,6 @@ const NewDreamNavigation = StackNavigator(
   },
   {
     initialRoute: 'NewDream',
-  }
-)
-
-const headerOptions = {
-  headerTintColor: 'white',
-  headerStyle: {
-    backgroundColor: '#161616',
-  },
-  headerTitleStyle: {
-    fontWeight: '600',
-    fontSize: 20,
-    fontFamily: 'Futura-Medium',
-    marginTop: -5,
-  },
-}
-
-const AppNavigator = StackNavigator(
-  {
-    Main: { screen: TabNavigation, navigationOptions: headerOptions },
-    NewDream: { screen: NewDreamNavigation },
-  },
-  {
     headerMode: 'screen',
     transitionConfig: () => ({
       transitionSpec: {
@@ -92,5 +71,24 @@ const AppNavigator = StackNavigator(
     }),
   }
 )
+
+const headerOptions = {
+  headerTintColor: 'white',
+  headerStyle: {
+    backgroundColor: '#161616',
+  },
+  headerTitleStyle: {
+    fontWeight: '600',
+    fontSize: 20,
+    fontFamily: 'Futura-Medium',
+    marginTop: -5,
+  },
+}
+
+const AppNavigator = StackNavigator({
+  Main: { screen: TabNavigation, navigationOptions: headerOptions },
+  ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
+  NewDream: { screen: NewDreamNavigation },
+})
 
 export default AppNavigator
