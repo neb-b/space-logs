@@ -44,7 +44,7 @@ const DreamBuilderNavigation = StackNavigator(
   },
   {
     initialRoute: 'Builder',
-    headerMode: 'screen',
+    // headerMode: 'screen',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 300,
