@@ -5,7 +5,7 @@ import {
   SAVE_DREAM,
   CANCEL_CREATE_DREAM,
   UPDATE_DREAM_OPTIONS,
-  PREPARE_DREAM_BUILDER,
+  POPULATE_DREAM_BUILDER,
 } from '../constants'
 
 const initialState = {
@@ -41,7 +41,7 @@ export default handleActions(
       isEditingDreamText: true,
       text: '',
     }),
-    [PREPARE_DREAM_BUILDER]: (state, { payload }) => ({
+    [POPULATE_DREAM_BUILDER]: (state, { payload }) => ({
       ...state,
       ...payload,
     }),

@@ -8,7 +8,6 @@ import Header from './dream-builder/header'
 import DreamBuilder from './dream-builder/dream-builder'
 
 export default props => {
-  // console.log('comps/dream-builder', props)
   const {
     navigation,
     nav: { screenId },

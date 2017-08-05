@@ -9,7 +9,7 @@ import {
   TabNavigator,
 } from 'react-navigation'
 
-import HomeScreen from './screens/home'
+import DashboardScreen from './screens/dashboard'
 import DreamBuilderScreen from './screens/dream-builder'
 import SettingsScreen from './screens/settings'
 import StatsScreen from './screens/stats'
@@ -17,7 +17,7 @@ import ViewDreamScreen from './screens/view-dream'
 
 const TabNavigation = TabNavigator(
   {
-    Home: { screen: HomeScreen },
+    Home: { screen: DashboardScreen },
     Stats: { screen: StatsScreen },
     Settings: { screen: SettingsScreen },
   },

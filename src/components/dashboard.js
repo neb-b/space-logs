@@ -6,14 +6,14 @@ import { NavigationActions } from 'react-navigation'
 // import styles from './dream-builder/styles'
 import Text from './common/text'
 
-const viewDream = dream =>
+const viewDream = dreamDate =>
   NavigationActions.navigate({
     routeName: 'ViewDream',
-    params: { dream },
+    params: { dreamDate },
   })
 
 export default props => {
-  const { dreams, navigation } = props
+  const { dreams, navigation, populateViewDream } = props
 
   return (
     <View>
@@ -23,7 +23,10 @@ export default props => {
           <TouchableOpacity
             key={i}
             style={{ borderWidth: 1, borderColor: '#fff' }}
-            onPress={() => navigation.dispatch(viewDream(dream))}
+            onPress={() => {
+              populateViewDream(dream)
+              navigation.dispatch(viewDream(dream.dreamDate))
+            }}
           >
             <Text>
               {dateCreated}

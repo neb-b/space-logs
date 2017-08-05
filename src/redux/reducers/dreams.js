@@ -7,30 +7,30 @@ const initialState = {
 
 export default handleActions(
   {
-    // dream will be added to dreams reducer
-    // clear out dream info for next addition
     [SAVE_DREAM]: (state, { payload }) => {
-      const alreadyExists = state.dreams.some(dream => {
-        console.log('check', dream.id, payload.id)
-        return dream.id === payload.id
-      })
-      let newDreamsList = []
-      console.log('alreadyExists', alreadyExists)
+      let dreams = []
+      const alreadyExists = state.dreams.some(dream => dream.id === payload.id)
+
       if (alreadyExists) {
-        newDreamsList = state.dreams.map(dream => {
+        dreams = state.dreams.map(dream => {
           if (dream.id === payload.id) {
             return payload
           }
         })
       } else {
-        newDreamsList = state.dreams.concat(payload)
+        dreams = state.dreams.concat(payload)
       }
 
       return {
         ...state,
-        dreams: newDreamsList,
+        dreams,
       }
     },
   },
+  // [DELETE_DREAM]: (state, { payload }) => {
+  //   return {
+  //     ...state
+  //   }
+  // }
   initialState
 )

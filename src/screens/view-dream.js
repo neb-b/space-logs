@@ -3,7 +3,7 @@
 import React from 'react'
 import { Text, View, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { prepareDreamBuilder } from '../redux/actions/dream-builder.actions'
+import { populateDreamBuilder } from '../redux/actions/dream-builder'
 import moment from 'moment'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
@@ -12,16 +12,21 @@ import HeaderButton from './internal/header-button'
 class ViewDreamScreen extends React.Component {
   static navigationOptions = props => {
     const { navigation } = props
-    console.log('nav ', props)
-    const { dream, prepareDreamBuilder } = navigation.state.params
+    const { dream } = navigation
+    const title = moment(dream.dateCreated).format('MMM Do')
+
+    // maybe i should add this to the navigation like I did with dream ^
+    // then I wouldn't have to render once before I the helper is added
+    const { populateDreamBuilder } = navigation.state.params
+
     return {
-      title: moment(dream.dateCreated).format('MMM Do'),
+      title,
       headerRight: (
         <HeaderButton
           type="Edit"
           onPress={() => {
             // populate the dreamBuilder state then navigate
-            prepareDreamBuilder(dream)
+            populateDreamBuilder(dream)
             navigation.navigate('DreamBuilder')
           }}
         />
@@ -30,27 +35,30 @@ class ViewDreamScreen extends React.Component {
   }
 
   componentDidMount() {
-    const { navigation, prepareDreamBuilder } = this.props
+    const { navigation, populateDreamBuilder } = this.props
     navigation.setParams({
-      prepareDreamBuilder,
+      populateDreamBuilder,
     })
   }
 
   render() {
-    console.log('view dreqm', this.props)
-    const { navigation: { state: { params: { dream } } } } = this.props
-    console.log('??', dream)
+    const { dreamOptions, text } = this.props.dream
+    const { wasLucid } = dreamOptions
     return (
       <Screen scroll>
         <Text>
-          {dream.dreamOptions.wasLucid ? 'Was lucid' : 'Not lucid'}
+          {wasLucid ? 'Was lucid' : 'Not lucid'}
         </Text>
         <Text>
-          {dream.text}
+          {text}
         </Text>
       </Screen>
     )
   }
 }
 
-export default connect(null, { prepareDreamBuilder })(ViewDreamScreen)
+const mapStateToProps = ({ dream }) => ({ dream })
+
+export default connect(mapStateToProps, { populateDreamBuilder })(
+  ViewDreamScreen
+)

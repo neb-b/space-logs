@@ -11,7 +11,7 @@ import {
   saveDream,
   cancelCreateDream,
   updateDreamOptions,
-} from '../redux/actions/dream-builder.actions'
+} from '../redux/actions/dream-builder'
 
 class NewDreamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({

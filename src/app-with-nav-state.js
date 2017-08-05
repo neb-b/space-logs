@@ -13,14 +13,19 @@ react-navigation to work with redux
 const AppWithNavigationState = ({
   dispatch,
   nav,
+  dream,
 }: {
   dispatch: Function,
   nav: Object,
+  dream: Object,
 }) =>
-  <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+  <AppNavigator
+    navigation={addNavigationHelpers({ dispatch, state: nav, dream })}
+  />
 
 const mapStateToProps = state => ({
   nav: state.nav,
+  dream: state.dream,
 })
 
 export default connect(mapStateToProps)(AppWithNavigationState)
