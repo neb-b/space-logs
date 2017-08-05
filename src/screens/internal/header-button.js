@@ -36,7 +36,11 @@ const HeaderButton = ({
         >
           {text}
         </Text>}
-      {buttonType && <Icon name={buttonType} color={buttonColor} size={30} />}
+      {buttonType
+        ? <Icon name={buttonType} color={buttonColor} size={30} />
+        : <Text style={{ color: '#fff' }}>
+            {type}
+          </Text>}
     </TouchableOpacity>
   )
 }

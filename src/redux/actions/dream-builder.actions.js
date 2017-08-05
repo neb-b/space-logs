@@ -8,24 +8,29 @@ import {
   SAVE_DREAM,
   CANCEL_CREATE_DREAM,
   UPDATE_DREAM_OPTIONS,
+  PREPARE_DREAM_BUILDER,
 } from '../constants'
 
 export const toggleDreamEditText = createAction(TOGGLE_EDIT_DREAM_TEXT)
 export const updateDreamText = createAction(UPDATE_DREAM_TEXT)
 export const cancelCreateDream = createAction(CANCEL_CREATE_DREAM)
 export const updateDreamOptions = createAction(UPDATE_DREAM_OPTIONS)
+export const prepareDreamBuilder = createAction(PREPARE_DREAM_BUILDER)
 
 const onSaveDream = createAction(SAVE_DREAM)
 export const saveDream = () => {
-  console.log('saveDream()')
   return (dispatch, getState) => {
-    console.log('saveDream inner func()')
-    const dream = getState().dreamBuilder
-    const savedDream = Object.assign({}, dream, {
-      id: uuid(),
-      dateCreated: new Date().toISOString(),
-    })
+    let dream = getState().dreamBuilder
 
-    return dispatch(onSaveDream(savedDream))
+    // no id, new dream
+    // if it has an id, this is an update
+    if (!dream.id) {
+      dream = Object.assign({}, dream, {
+        id: uuid(),
+        dateCreated: new Date().toISOString(),
+      })
+    }
+
+    return dispatch(onSaveDream(dream))
   }
 }

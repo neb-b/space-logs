@@ -38,12 +38,12 @@ const TabNavigation = TabNavigator(
   }
 )
 
-const NewDreamNavigation = StackNavigator(
+const DreamBuilderNavigation = StackNavigator(
   {
-    NewDream: { screen: DreamBuilderScreen },
+    Builder: { screen: DreamBuilderScreen },
   },
   {
-    initialRoute: 'NewDream',
+    initialRoute: 'Builder',
     headerMode: 'screen',
     transitionConfig: () => ({
       transitionSpec: {
@@ -88,7 +88,7 @@ const headerOptions = {
 const AppNavigator = StackNavigator({
   Main: { screen: TabNavigation, navigationOptions: headerOptions },
   ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
-  NewDream: { screen: NewDreamNavigation },
+  DreamBuilder: { screen: DreamBuilderNavigation },
 })
 
 export default AppNavigator

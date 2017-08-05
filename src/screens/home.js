@@ -13,7 +13,7 @@ class SettingsScreen extends React.Component {
     headerRight: (
       <HeaderButton
         type="newDream"
-        onPress={() => navigation.navigate('NewDream')}
+        onPress={() => navigation.navigate('DreamBuilder')}
       />
     ),
     tabBarIcon: ({ focused }) => {

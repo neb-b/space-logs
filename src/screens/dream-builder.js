@@ -31,7 +31,7 @@ const mapStateToProps = ({ nav, dreamBuilder }) => {
   const routes = nav.routes
   let screenId
   for (let i = 0; i < routes.length; i++) {
-    if (routes[i].routeName === 'NewDream') {
+    if (routes[i].routeName === 'DreamBuilder') {
       screenId = routes[i].key
       break
     }

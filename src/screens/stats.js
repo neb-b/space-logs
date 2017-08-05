@@ -13,7 +13,7 @@ class StatsScreen extends React.Component {
     headerRight: (
       <HeaderButton
         type="newDream"
-        onPress={() => navigation.navigate('NewDream')}
+        onPress={() => navigation.navigate('DreamBuilder')}
       />
     ),
     tabBarIcon: ({ focused }) => <TabIcon focused={focused} page="stats" />,
