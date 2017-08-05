@@ -2,12 +2,19 @@
 
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 // import styles from './dream-builder/styles'
 import Text from './common/text'
 
+const viewDream = dream =>
+  NavigationActions.navigate({
+    routeName: 'ViewDream',
+    params: { dream },
+  })
+
 export default props => {
-  // console.log('comps/dashboard', props)
   const { dreams, navigation } = props
+
   return (
     <View>
       {dreams.map((dream, i) => {
@@ -16,7 +23,7 @@ export default props => {
           <TouchableOpacity
             key={i}
             style={{ borderWidth: 1, borderColor: '#fff' }}
-            onPress={() => navigation.navigate('ViewDream')}
+            onPress={() => navigation.dispatch(viewDream(dream))}
           >
             <Text>
               {dateCreated}
