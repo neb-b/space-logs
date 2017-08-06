@@ -5,7 +5,7 @@ const { width: WIDTH } = Dimensions.get('window')
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#161616',
+    // backgroundColor: '#161616',
   },
 
   star: {
@@ -45,34 +45,6 @@ export default StyleSheet.create({
     fontSize: 20,
   },
 
-  question: {
-    marginTop: 80,
-    fontSize: 32,
-    color: '#fff48f',
-    backgroundColor: '#161616',
-    fontWeight: '900',
-  },
-
-  questionAction: {
-    height: 70,
-    width: 130,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 10,
-    backgroundColor: '#d0b1f9',
-    borderRadius: 10,
-  },
-
-  questionActionText: {
-    fontSize: 28,
-    fontWeight: '900',
-    color: '#161616',
-  },
-
-  yesButton: {
-    marginTop: 50,
-  },
-
   textEditor: {
     flex: 1,
   },
@@ -84,29 +56,43 @@ export default StyleSheet.create({
     paddingTop: 15,
     width: '100%',
     height: '100%',
-    backgroundColor: '#1d1d1d',
   },
   dreamActions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  baseDreamAction: {
+
+  whatHappened: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  whatHappenedText: {
+    color: '#f6f6f6',
+    fontSize: 24,
+  },
+
+  otherInfo: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-  },
-  dreamAction: {
     borderRadius: 10,
-    backgroundColor: '#7958fc',
+    borderWidth: 2,
+    borderColor: '#fcf658',
   },
-  baseDreamActionText: {
+  otherInfoText: {
     fontSize: 16,
+    color: '#fcf658',
   },
-  activeDreamActionText: {
-    color: '#fff',
-  },
-  whatHappend: {
-    color: '#fafafa',
-    fontSize: 18,
+
+  inputContainer: {},
+
+  input: {
+    marginTop: 15,
+    paddingBottom: 50,
+    // borderColor: '#fff',
+    // borderWidth: 1,
+    color: '#fcfcfc',
+    fontSize: 15,
   },
 })

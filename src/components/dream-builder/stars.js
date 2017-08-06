@@ -3,7 +3,7 @@ import { View, Dimensions } from 'react-native'
 import styles from './styles'
 
 const starConfig = {
-  number: 150,
+  number: 75,
   maxSize: 1.75,
   colors: ['#febba4', '#b295ff', '#fba7e1', '#a2cefc', '#faf9ff'],
 }
@@ -29,7 +29,7 @@ const getStarStyles = () => {
 }
 
 const getStarLocation = () => {
-  const top = Math.floor(Math.random() * HEIGHT)
+  const top = Math.floor(Math.random() * 100)
   const left = Math.floor(Math.random() * WIDTH)
 
   return { top, left }

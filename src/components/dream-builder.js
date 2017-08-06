@@ -6,6 +6,7 @@ import styles from './dream-builder/styles'
 import Stars from './dream-builder/stars'
 import Header from './dream-builder/header'
 import DreamBuilder from './dream-builder/dream-builder'
+import LinearGradient from 'react-native-linear-gradient'
 
 export default props => {
   const {
@@ -19,7 +20,10 @@ export default props => {
     updateDreamOptions,
   } = props
   return (
-    <View style={[styles.container]}>
+    <LinearGradient
+      colors={['#000716', '#311f41', '#701256']}
+      style={[styles.container]}
+    >
       <Stars />
       <Header
         navigation={navigation}
@@ -33,6 +37,6 @@ export default props => {
         updateDreamText={updateDreamText}
         updateDreamOptions={updateDreamOptions}
       />
-    </View>
+    </LinearGradient>
   )
 }

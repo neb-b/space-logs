@@ -18,10 +18,14 @@ const AppWithNavigationState = ({
   dispatch: Function,
   nav: Object,
   dream: Object,
-}) =>
-  <AppNavigator
-    navigation={addNavigationHelpers({ dispatch, state: nav, dream })}
-  />
+}) => {
+  // console.log('app nav', dream);
+  return (
+    <AppNavigator
+      navigation={addNavigationHelpers({ dispatch, state: nav, dream })}
+    />
+  )
+}
 
 const mapStateToProps = state => ({
   nav: state.nav,

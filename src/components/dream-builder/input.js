@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import { TextInput, ScrollView } from 'react-native'
+import { TextInput, View } from 'react-native'
+import styles from './styles'
 
 export default class extends PureComponent {
   constructor(props) {
@@ -19,21 +20,17 @@ export default class extends PureComponent {
     const { text, updateDreamText } = this.props
 
     return (
-      <TextInput
-        style={{
-          height,
-          paddingBottom: 50,
-          borderColor: '#fff',
-          borderWidth: 1,
-          color: '#fcfcfc',
-          fontSize: 14,
-        }}
-        multiline={true}
-        onChangeText={text => updateDreamText(text)}
-        onContentSizeChange={e =>
-          this.updateSize(e.nativeEvent.contentSize.height)}
-        value={text}
-      />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[{ height }, styles.input]}
+          multiline={true}
+          defaultString="I was having a dream that..."
+          onChangeText={text => updateDreamText(text)}
+          onContentSizeChange={e =>
+            this.updateSize(e.nativeEvent.contentSize.height)}
+          value={text}
+        />
+      </View>
     )
   }
 }

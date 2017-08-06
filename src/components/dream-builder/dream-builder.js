@@ -20,6 +20,7 @@ export default props => {
   } = props
 
   // TODO: theres definitely a better way to do this
+  // tab nav would be much simpler, but idk
   const WhatHappenedEl = isEditingDreamText ? View : TouchableOpacity
   const OtherInfoEl = isEditingDreamText ? TouchableOpacity : View
 
@@ -34,31 +35,21 @@ export default props => {
     <View style={styles.dreamBuilder}>
       <View style={styles.dreamActions}>
         <WhatHappenedEl
-          style={[styles.baseDreamAction, whatHappenedStyle]}
+          style={[styles.whatHappened]}
           onPress={toggleDreamEditText}
         >
           <Text
             style={[
-              styles.baseDreamActionText,
-              isEditingDreamText && styles.activeDreamActionText,
+              styles.whatHappenedText,
+              // isEditingDreamText && styles.activeDreamActionText,
             ]}
           >
             What happened?
           </Text>
         </WhatHappenedEl>
 
-        <OtherInfoEl
-          style={[styles.baseDreamAction, otherInfoStyle]}
-          onPress={toggleDreamEditText}
-        >
-          <Text
-            style={[
-              styles.baseDreamActionText,
-              !isEditingDreamText && styles.activeDreamActionText,
-            ]}
-          >
-            Other info
-          </Text>
+        <OtherInfoEl style={[styles.otherInfo]} onPress={toggleDreamEditText}>
+          <Text style={[styles.otherInfoText]}>Other info</Text>
         </OtherInfoEl>
       </View>
       <View style={styles.dreamBuilderContent}>

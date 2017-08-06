@@ -11,6 +11,7 @@ import HeaderButton from './internal/header-button'
 
 class ViewDreamScreen extends React.Component {
   static navigationOptions = props => {
+    console.log('ViewDream navigationOptions', props)
     const { navigation } = props
     const { dream } = navigation
     const title = moment(dream.dateCreated).format('MMM Do')
@@ -42,6 +43,7 @@ class ViewDreamScreen extends React.Component {
   }
 
   render() {
+    console.log('ViewDream render', this.props)
     const { dreamOptions, text } = this.props.dream
     const { wasLucid } = dreamOptions
     return (

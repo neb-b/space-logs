@@ -24,6 +24,9 @@ export default props => {
             key={i}
             style={{ borderWidth: 1, borderColor: '#fff' }}
             onPress={() => {
+              // I am passing the dreamDate through the navigation because the dashboard header
+              // can't access this.props (?) on the first render. Waiting to render and then setting
+              // the title looks terrible. This way it renders the title on first render
               populateViewDream(dream)
               navigation.dispatch(viewDream(dream.dreamDate))
             }}
