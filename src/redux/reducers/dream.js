@@ -5,6 +5,8 @@ const initialState = {
   text: '',
   dreamOptions: {
     wasLucid: false,
+    wasNightmare: false,
+    wasRecurrent: false,
   },
 }
 

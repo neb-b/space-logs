@@ -22,7 +22,7 @@ export default class extends PureComponent {
     return (
       <View style={styles.inputContainer}>
         <TextInput
-          style={[{ height }, styles.input]}
+          style={[styles.input]}
           multiline={true}
           defaultString="I was having a dream that..."
           onChangeText={text => updateDreamText(text)}

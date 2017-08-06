@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, DeviceEventEmitter } from 'react-native'
 import Text from '../common/text'
 import styles from './styles'
 
@@ -19,6 +19,7 @@ export default ({ navigation, screenId, saveDream, cancelCreateDream }) => {
       <TouchableOpacity
         onPress={() => {
           saveDream()
+          DeviceEventEmitter.emit('saveDreamBuilder')
           navigation.goBack(screenId)
         }}
         style={[styles.headerActionBtn, styles.save]}

@@ -6,6 +6,7 @@ const starConfig = {
   number: 75,
   maxSize: 1.75,
   colors: ['#febba4', '#b295ff', '#fba7e1', '#a2cefc', '#faf9ff'],
+  height: 85,
 }
 
 const { height: HEIGHT, width: WIDTH } = Dimensions.get('window')
@@ -29,7 +30,7 @@ const getStarStyles = () => {
 }
 
 const getStarLocation = () => {
-  const top = Math.floor(Math.random() * 100)
+  const top = Math.floor(Math.random() * starConfig.height)
   const left = Math.floor(Math.random() * WIDTH)
 
   return { top, left }

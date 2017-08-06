@@ -4,7 +4,7 @@ import React from 'react'
 import { View, Dimensions, TouchableOpacity } from 'react-native'
 import styles from './dream-builder/styles'
 import Stars from './dream-builder/stars'
-import Header from './dream-builder/header'
+import HeaderActions from './dream-builder/header-actions'
 import DreamBuilder from './dream-builder/dream-builder'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -25,7 +25,7 @@ export default props => {
       style={[styles.container]}
     >
       <Stars />
-      <Header
+      <HeaderActions
         navigation={navigation}
         screenId={screenId}
         saveDream={saveDream}
