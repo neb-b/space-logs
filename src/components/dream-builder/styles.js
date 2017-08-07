@@ -16,37 +16,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  headerWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 30,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-
-  headerActionBtn: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-    width: 90,
-    height: 40,
-  },
-
-  cancel: {
-    backgroundColor: '#eb4c4c',
-  },
-  save: {
-    backgroundColor: '#2dc376',
-  },
-
-  headerActionText: {
-    color: '#fff',
-    fontWeight: '800',
-    fontSize: 20,
-  },
-
   dreamBuilder: {
-    marginTop: 20,
+    marginTop: 80,
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 5,

@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-native'
 import { View, TouchableOpacity, DeviceEventEmitter } from 'react-native'
-import Text from '../common/text'
+import Text from '../../components/common/text'
 import styles from './styles'
 
-export default ({ navigation, screenId, saveDream, cancelCreateDream }) => {
+const Header = ({ navigation, cancelCreateDream, saveDream, screenId }) => {
   return (
     <View style={styles.headerWrapper}>
       <TouchableOpacity
@@ -35,3 +36,5 @@ export default ({ navigation, screenId, saveDream, cancelCreateDream }) => {
     </View>
   )
 }
+
+export default Header

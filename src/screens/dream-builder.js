@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
@@ -12,13 +12,43 @@ import {
   cancelCreateDream,
   updateDreamOptions,
 } from '../redux/actions/dream-builder'
+import DreamBuilderHeader from './internal/dream-builder-header'
+import styles from '../components/dream-builder/styles'
 
 class NewDreamScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: 'New Dream',
-    path: 'dreams/new',
-    header: null,
-  })
+  static navigationOptions = props => {
+    const { navigation } = props
+    //ideally this would default to an empty object...
+    const { params = {} } = navigation.state
+    const { saveDream, cancelCreateDream, screenId } = params
+
+    return {
+      title: 'New Dream',
+      path: 'dreams/new',
+      header: (
+        <DreamBuilderHeader
+          navigation={navigation}
+          saveDream={saveDream}
+          cancelCreateDream={cancelCreateDream}
+          screenId={screenId}
+        />
+      ),
+    }
+  }
+
+  componentDidMount() {
+    const {
+      navigation,
+      saveDream,
+      cancelCreateDream,
+      nav: { screenId },
+    } = this.props
+    navigation.setParams({
+      saveDream,
+      cancelCreateDream,
+      screenId,
+    })
+  }
 
   render() {
     return <DreamBuilderView {...this.props} />
