@@ -19,10 +19,12 @@ const AppWithNavigationState = ({
   nav: Object,
   dream: Object,
 }) => {
-  // console.log('app nav', dream);
   return (
     <AppNavigator
-      navigation={addNavigationHelpers({ dispatch, state: nav, dream })}
+      navigation={addNavigationHelpers({
+        dispatch,
+        state: nav,
+      })}
     />
   )
 }

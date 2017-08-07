@@ -19,8 +19,14 @@ export default ({ navigation, screenId, saveDream, cancelCreateDream }) => {
       <TouchableOpacity
         onPress={() => {
           saveDream()
-          DeviceEventEmitter.emit('saveDreamBuilder')
           navigation.goBack(screenId)
+
+          // After going back, emit this event which I am listening for on view-dream screen
+          // the setTimeout is for a weird issue where the state is update, but in this.props inside
+          // the event listener it is referencing the old state
+          setTimeout(() => {
+            DeviceEventEmitter.emit('saveDreamBuilder')
+          }, 0)
         }}
         style={[styles.headerActionBtn, styles.save]}
       >
