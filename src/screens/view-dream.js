@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { populateDreamBuilder } from '../redux/actions/dream-builder'
-import { deleteDream } from '../redux/actions/view-dream'
+import { deleteDream } from '../redux/actions/dream'
 import moment from 'moment'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'

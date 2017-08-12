@@ -12,13 +12,11 @@ import {
 import DashboardScreen from './screens/dashboard'
 import DreamBuilderScreen from './screens/dream-builder'
 import SettingsScreen from './screens/settings'
-import StatsScreen from './screens/stats'
 import ViewDreamScreen from './screens/view-dream'
 
 const TabNavigation = TabNavigator(
   {
     Home: { screen: DashboardScreen },
-    Stats: { screen: StatsScreen },
     Settings: { screen: SettingsScreen },
   },
   {
@@ -44,7 +42,6 @@ const DreamBuilderNavigation = StackNavigator(
   },
   {
     initialRoute: 'Builder',
-    // headerMode: 'screen',
     transitionConfig: () => ({
       transitionSpec: {
         duration: 300,
@@ -85,10 +82,13 @@ const headerOptions = {
   },
 }
 
-const AppNavigator = StackNavigator({
-  Main: { screen: TabNavigation, navigationOptions: headerOptions },
-  ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
-  DreamBuilder: { screen: DreamBuilderNavigation },
-})
+const AppNavigator = StackNavigator(
+  {
+    Main: { screen: TabNavigation, navigationOptions: headerOptions },
+    ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
+    DreamBuilder: { screen: DreamBuilderNavigation },
+  },
+  { mode: 'modal' }
+)
 
 export default AppNavigator

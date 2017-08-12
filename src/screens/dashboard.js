@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Text, View, Button } from 'react-native'
-import { populateViewDream } from '../redux/actions/view-dream'
+import { populateViewDream } from '../redux/actions/dream'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
 import HeaderButton from './internal/header-button'

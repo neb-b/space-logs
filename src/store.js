@@ -13,9 +13,10 @@ const middleware = () =>
 const store = createStore(
   reducer,
   undefined,
-  compose(middleware(), autoRehydrate())
+  // compose(middleware(), autoRehydrate())
+  compose(middleware())
 )
 
-persistStore(store, { storage: AsyncStorage })
+// persistStore(store, { storage: AsyncStorage })
 
 export default store

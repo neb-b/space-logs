@@ -35,13 +35,11 @@ export default handleActions(
     // dream will be added to dreams reducer
     // clear out dream info for next addition
     [SAVE_DREAM]: () => ({
-      isEditingDreamText: true,
-      text: '',
+      ...initialState,
     }),
 
     [CANCEL_CREATE_DREAM]: () => ({
-      isEditingDreamText: true,
-      text: '',
+      ...initialState,
     }),
     [POPULATE_DREAM_BUILDER]: (state, { payload }) => ({
       ...state,

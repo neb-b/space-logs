@@ -8,22 +8,24 @@ const initialState = {
 export default handleActions(
   {
     [SAVE_DREAM]: (state, { payload }) => {
-      let dreams = []
-      const alreadyExists = state.dreams.some(dream => dream.id === payload.id)
+      let newSavedDreams = state.dreams.slice() || []
+      const alreadyExists = newSavedDreams.some(
+        dream => dream.id === payload.id
+      )
 
       if (alreadyExists) {
-        dreams = state.dreams.map(dream => {
+        newSavedDreams = newSavedDreams.map(dream => {
           if (dream.id === payload.id) {
             return payload
           }
         })
       } else {
-        dreams = state.dreams.concat(payload)
+        newSavedDreams.unshift(payload)
       }
 
       return {
         ...state,
-        dreams,
+        dreams: newSavedDreams,
       }
     },
     [DELETE_DREAM]: (state, { payload: dreamId }) => {
