@@ -8,10 +8,6 @@ export default StyleSheet.create({
     // backgroundColor: '#161616',
   },
 
-  star: {
-    position: 'absolute',
-  },
-
   newDreamWrapper: {
     alignItems: 'center',
   },

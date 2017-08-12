@@ -3,11 +3,16 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   headerWrapper: {
     position: 'absolute',
-    backgroundColor: 'transparent',
-    zIndex: 100,
-    top: 30,
+    top: 0,
     left: 10,
     right: 10,
+    backgroundColor: 'transparent',
+    zIndex: 100,
+  },
+
+  headerActions: {
+    marginTop: 30,
+    marginBottom: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -31,5 +36,9 @@ export default StyleSheet.create({
     color: '#fff',
     fontWeight: '800',
     fontSize: 20,
+  },
+
+  star: {
+    position: 'absolute',
   },
 })
