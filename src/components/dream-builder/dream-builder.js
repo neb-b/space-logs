@@ -6,6 +6,7 @@ import Text from '../common/text'
 import DreamInput from './input'
 import ListOfOptions from './list-of-options'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import moment from 'moment'
 
 // how did you feel when you woke up?
 // did you have anything interesting to eat before you went to sleep
@@ -35,7 +36,9 @@ export default props => {
 
   return (
     <ScrollView style={styles.dreamBuilder}>
-      <Text style={styles.dreamDate}>Aug 3 2017</Text>
+      <Text style={styles.dreamDate}>
+        {moment(dreamOptions.dreamDate).format('MMM Do')}
+      </Text>
       <View style={styles.topItems}>
         <TouchableOpacity
           style={[
