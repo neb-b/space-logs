@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { populateDreamBuilder } from '../redux/actions/dream-builder'
+import { deleteDream } from '../redux/actions/view-dream'
 import moment from 'moment'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
@@ -19,20 +20,34 @@ import ViewDream from '../components/view-dream'
 class ViewDreamScreen extends React.Component {
   static navigationOptions = props => {
     const { navigation } = props
-    const { dream = {}, populateDreamBuilder } = navigation.state.params
+    const {
+      dream = {},
+      populateDreamBuilder,
+      deleteDream,
+    } = navigation.state.params
     const title = moment(dream.dateCreated).format('MMM Do')
 
     return {
       title,
       headerRight: (
-        <HeaderButton
-          type="Edit"
-          onPress={() => {
-            // populate the dreamBuilder state then navigate
-            populateDreamBuilder(dream)
-            navigation.navigate('DreamBuilder')
-          }}
-        />
+        <View style={{ flexDirection: 'row' }}>
+          <HeaderButton
+            text="Delete"
+            onPress={() => {
+              // populate the dreamBuilder state then navigate
+              deleteDream(dream.id)
+              navigation.goBack()
+            }}
+          />
+          <HeaderButton
+            text="Edit"
+            onPress={() => {
+              // populate the dreamBuilder state then navigate
+              populateDreamBuilder(dream)
+              navigation.navigate('DreamBuilder')
+            }}
+          />
+        </View>
       ),
     }
   }
@@ -62,9 +77,10 @@ class ViewDreamScreen extends React.Component {
   }
 
   componentDidMount() {
-    const { navigation, populateDreamBuilder, dream } = this.props
+    const { navigation, populateDreamBuilder, deleteDream, dream } = this.props
     navigation.setParams({
       populateDreamBuilder,
+      deleteDream,
       dream,
     })
   }
@@ -80,6 +96,6 @@ class ViewDreamScreen extends React.Component {
 
 const mapStateToProps = ({ dream }) => ({ dream })
 
-export default connect(mapStateToProps, { populateDreamBuilder })(
+export default connect(mapStateToProps, { populateDreamBuilder, deleteDream })(
   ViewDreamScreen
 )

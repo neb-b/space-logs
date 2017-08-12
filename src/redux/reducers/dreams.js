@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions'
-import { SAVE_DREAM } from '../constants'
+import { SAVE_DREAM, DELETE_DREAM } from '../constants'
 
 const initialState = {
   dreams: [],
@@ -26,11 +26,12 @@ export default handleActions(
         dreams,
       }
     },
+    [DELETE_DREAM]: (state, { payload: dreamId }) => {
+      return {
+        ...state,
+        dreams: state.dreams.filter(dream => dream.id !== dreamId),
+      }
+    },
   },
-  // [DELETE_DREAM]: (state, { payload }) => {
-  //   return {
-  //     ...state
-  //   }
-  // }
   initialState
 )
