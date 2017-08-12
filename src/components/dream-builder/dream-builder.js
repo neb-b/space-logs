@@ -12,7 +12,6 @@ import moment from 'moment'
 // did you have anything interesting to eat before you went to sleep
 
 export default props => {
-  // console.log('dream builder', props)
   const {
     isEditingDreamText,
     toggleDreamEditText,
@@ -21,18 +20,6 @@ export default props => {
     updateDreamOptions,
     dreamOptions = {}, // dreamOptions undefined on NAVIGATION/BACK ??
   } = props
-
-  // TODO: theres definitely a better way to do this
-  // tab nav would be much simpler, but idk
-  const WhatHappenedEl = isEditingDreamText ? View : TouchableOpacity
-  const OtherInfoEl = isEditingDreamText ? TouchableOpacity : View
-
-  // const whatHappenedStyle = isEditingDreamText
-  //   ? styles.activeDreamAction
-  //   : styles.dreamAction
-  // const otherInfoStyle = isEditingDreamText
-  //   ? styles.dreamAction
-  //   : styles.activeDreamAction
 
   return (
     <ScrollView style={styles.dreamBuilder}>
@@ -64,7 +51,6 @@ export default props => {
             styles.dreamOptionBtn,
             { borderColor: '#7a94ff' },
 
-            // dreamOptions.wasNightmare && styles.wasLucidActive
             dreamOptions.wasNightmare && {
               backgroundColor: '#7a94ff',
               borderColor: '#7a94ff',
@@ -107,23 +93,12 @@ export default props => {
         </TouchableOpacity>
       </View>
       <View style={styles.dreamActions}>
-        <WhatHappenedEl
+        <TouchableOpacity
           style={[styles.whatHappened]}
           onPress={toggleDreamEditText}
         >
-          <Text
-            style={[
-              styles.whatHappenedText,
-              // isEditingDreamText && styles.activeDreamActionText,
-            ]}
-          >
-            What happened?
-          </Text>
-        </WhatHappenedEl>
-
-        <OtherInfoEl style={[styles.otherInfo]} onPress={toggleDreamEditText}>
-          <Text style={[styles.otherInfoText]}>Other info</Text>
-        </OtherInfoEl>
+          <Text style={[styles.whatHappenedText]}>What happened?</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.dreamBuilderContent}>
         {isEditingDreamText
