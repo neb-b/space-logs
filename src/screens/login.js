@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import { View, Button, TouchableOpacity } from 'react-native'
+import { View, Button, TouchableOpacity, AppState } from 'react-native'
 import Text from '../components/common/text'
 import { connect } from 'react-redux'
 import Screen from './internal/screen'
@@ -14,8 +14,25 @@ class LoginScreen extends React.Component {
     }
   }
 
+  //   state = {
+  //   appState: AppState.currentState
+  // }
+  //
+  // componentDidMount() {
+  //   AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+  // }
+  //
+  // componentWillUnmount() {
+  //   AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
+  // }
+  //
+  // _handleAppStateChange = (nextAppState) => {
+  //   // console.log('x', this.props);
+  //   this.setState({appState: nextAppState});
+  // }
+
   render() {
-    const { navigation } = this.props
+    // console.log('t', this.props);
     return (
       <Screen>
         <Login {...this.props} />
