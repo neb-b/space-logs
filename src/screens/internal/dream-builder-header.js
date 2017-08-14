@@ -3,12 +3,12 @@ import { connect } from 'react-native'
 import { View, TouchableOpacity, DeviceEventEmitter } from 'react-native'
 import Text from '../../components/common/text'
 import styles from './styles'
-import Stars from './stars'
+import Stars from '../../components/common/stars'
 
 const Header = ({ navigation, cancelCreateDream, saveDream, screenId }) => {
   return (
     <View style={styles.headerWrapper}>
-      <Stars />
+      <Stars height={50} />
       <View style={styles.headerActions}>
         <TouchableOpacity
           onPress={() => {

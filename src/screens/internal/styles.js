@@ -37,8 +37,4 @@ export default StyleSheet.create({
     fontWeight: '800',
     fontSize: 20,
   },
-
-  star: {
-    position: 'absolute',
-  },
 })

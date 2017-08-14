@@ -17,7 +17,7 @@ const Screen = ({
 }) => {
   const WrapperEl = scroll ? ScrollView : View
   return (
-    <WrapperEl style={{ backgroundColor: '#161616' }}>
+    <WrapperEl style={{ flex: 1, backgroundColor: '#161616' }}>
       <StatusBar barStyle="light-content" />
       {children}
     </WrapperEl>

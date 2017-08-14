@@ -11,6 +11,7 @@ class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Dreams',
     path: 'dreams',
+    headerLeft: null,
     headerRight: (
       <HeaderButton
         type="newDream"

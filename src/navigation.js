@@ -13,6 +13,7 @@ import DashboardScreen from './screens/dashboard'
 import DreamBuilderScreen from './screens/dream-builder'
 import SettingsScreen from './screens/settings'
 import ViewDreamScreen from './screens/view-dream'
+import LoginScreen from './screens/login'
 
 const TabNavigation = TabNavigator(
   {
@@ -84,11 +85,12 @@ const headerOptions = {
 
 const AppNavigator = StackNavigator(
   {
+    Login: { screen: LoginScreen },
     Main: { screen: TabNavigation, navigationOptions: headerOptions },
     ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
     DreamBuilder: { screen: DreamBuilderNavigation },
   },
-  { mode: 'modal' }
+  { initialRoute: 'Login', mode: 'modal' }
 )
 
 export default AppNavigator
