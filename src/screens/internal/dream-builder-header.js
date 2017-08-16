@@ -8,7 +8,7 @@ import Stars from '../../components/common/stars'
 const Header = ({ navigation, cancelCreateDream, saveDream, screenId }) => {
   return (
     <View style={styles.headerWrapper}>
-      <Stars height={50} />
+      <Stars height={80} />
       <View style={styles.headerActions}>
         <TouchableOpacity
           onPress={() => {

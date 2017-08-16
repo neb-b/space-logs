@@ -1,11 +1,12 @@
 // @flow
 
 import React from 'react'
-import { View, Button, TouchableOpacity, AppState } from 'react-native'
+import { View, Button, TouchableOpacity, AppState, Alert } from 'react-native'
 import Text from '../components/common/text'
 import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import Login from '../components/login'
+import TouchID from 'react-native-touch-id'
 
 class LoginScreen extends React.Component {
   static navigationOptions = props => {
@@ -14,28 +15,35 @@ class LoginScreen extends React.Component {
     }
   }
 
-  //   state = {
-  //   appState: AppState.currentState
-  // }
-  //
-  // componentDidMount() {
-  //   AppState.addEventListener('change', this._handleAppStateChange.bind(this));
-  // }
-  //
-  // componentWillUnmount() {
-  //   AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
-  // }
-  //
-  // _handleAppStateChange = (nextAppState) => {
-  //   // console.log('x', this.props);
-  //   this.setState({appState: nextAppState});
+  _touchId() {
+    this.props.navigation.navigate('Main')
+    ///
+    // i'll do this at some point
+    //
+    // TouchID.isSupported()
+    //   .then(() => {
+    //     console.log("HELLO!!!")
+    //     Alert.alert({text: 'OK', onPress: () => this.triggerTouchID() })
+    //   })
+    //   .catch(err => {
+    //     console.log('no touchId')
+    //   })
+  }
+
+  // triggerTouchID() {
+  //   TouchID.authenticate('to demo this react-native component')
+  //     .then(success => {
+  //       Alert.alert('Authenticated Successfully');
+  //     })
+  //     .catch(error => {
+  //       Alert.alert('Authentication Failed');
+  //     });
   // }
 
   render() {
-    // console.log('t', this.props);
     return (
       <Screen>
-        <Login {...this.props} />
+        <Login {...this.props} touchId={this._touchId.bind(this)} />
       </Screen>
     )
   }
