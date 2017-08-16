@@ -3,13 +3,12 @@ import {
   TOGGLE_EDIT_DREAM_TEXT,
   UPDATE_DREAM_TEXT,
   SAVE_DREAM,
-  CANCEL_CREATE_DREAM,
+  CANCEL_DREAM,
   UPDATE_DREAM_OPTIONS,
   POPULATE_DREAM_BUILDER,
 } from '../constants'
 
 const initialState = {
-  isEditingDreamText: true,
   text: '',
   dreamOptions: {
     wasLucid: false,
@@ -20,10 +19,6 @@ const initialState = {
 
 export default handleActions(
   {
-    [TOGGLE_EDIT_DREAM_TEXT]: state => ({
-      ...state,
-      isEditingDreamText: !state.isEditingDreamText,
-    }),
     [UPDATE_DREAM_TEXT]: (state, { payload }) => ({
       ...state,
       text: payload,
@@ -38,7 +33,7 @@ export default handleActions(
       ...initialState,
     }),
 
-    [CANCEL_CREATE_DREAM]: () => ({
+    [CANCEL_DREAM]: () => ({
       ...initialState,
     }),
     [POPULATE_DREAM_BUILDER]: (state, { payload }) => ({

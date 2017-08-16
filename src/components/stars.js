@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { View, Dimensions } from 'react-native'
-import styles from './styles'
+import styles from './stars/styles'
 
 const starConfig = {
   number: 75,

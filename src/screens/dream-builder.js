@@ -1,59 +1,25 @@
 // @flow
 import React from 'react'
-import { Text, View, Button, TouchableOpacity } from 'react-native'
+import {
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  DeviceEventEmitter,
+} from 'react-native'
 import { connect } from 'react-redux'
 import Screen from './internal/screen'
 import HeaderButton from './internal/header-button'
-import DreamBuilderView from '../components/dream-builder'
+import DreamBuilder from '../components/dream-builder'
 import {
   toggleDreamEditText,
   updateDreamText,
   saveDream,
-  cancelCreateDream,
+  cancelDream,
   updateDreamOptions,
 } from '../redux/actions/dream-builder'
-import DreamBuilderHeader from './internal/dream-builder-header'
+import Stars from '../components/stars'
 import styles from '../components/dream-builder/styles'
-
-class NewDreamScreen extends React.Component {
-  static navigationOptions = props => {
-    const { navigation } = props
-    //ideally this would default to an empty object...
-    const { params = {} } = navigation.state
-    const { saveDream, cancelCreateDream, screenId } = params
-
-    return {
-      title: 'New Dream',
-      path: 'dreams/new',
-      header: (
-        <DreamBuilderHeader
-          navigation={navigation}
-          saveDream={saveDream}
-          cancelCreateDream={cancelCreateDream}
-          screenId={screenId}
-        />
-      ),
-    }
-  }
-
-  componentDidMount() {
-    const {
-      navigation,
-      saveDream,
-      cancelCreateDream,
-      nav: { screenId },
-    } = this.props
-    navigation.setParams({
-      saveDream,
-      cancelCreateDream,
-      screenId,
-    })
-  }
-
-  render() {
-    return <DreamBuilderView {...this.props} />
-  }
-}
 
 const mapStateToProps = ({ nav, dreamBuilder }) => {
   // I'm not sure why react-navigation doesn't give you the screen key
@@ -72,11 +38,65 @@ const mapStateToProps = ({ nav, dreamBuilder }) => {
     dreamBuilder,
   }
 }
+const DreamBuilderHeader = connect(mapStateToProps, {
+  saveDream,
+  cancelDream,
+})(props => {
+  const { saveDream, cancelDream, navigation, dreamBuilder, nav } = props
+  console.log('header', props)
+  return (
+    <View style={styles.headerWrapper}>
+      <Stars height={80} />
+      <View style={styles.headerActions}>
+        <TouchableOpacity
+          onPress={() => {
+            cancelDream()
+            navigation.goBack(nav.screenId)
+          }}
+          style={[styles.headerActionBtn, styles.cancel]}
+        >
+          <Text style={styles.headerActionText}>Cancel</Text>
+        </TouchableOpacity>
 
-export default connect(mapStateToProps, {
+        <TouchableOpacity
+          onPress={() => {
+            saveDream(dreamBuilder)
+            navigation.goBack(nav.screenId)
+
+            // After going back, emit this event which I am listening for on view-dream screen
+            // the setTimeout is for a weird issue where the state is update, but in this.props inside
+            // the event listener it is referencing the old state
+            setTimeout(() => {
+              DeviceEventEmitter.emit('saveDreamBuilder')
+            }, 0)
+          }}
+          style={[styles.headerActionBtn, styles.save]}
+        >
+          <Text style={styles.headerActionText}>Save</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
+})
+
+class DreamBuilderScreen extends React.Component {
+  static navigationOptions = props => {
+    const { navigation } = props
+
+    return {
+      title: 'New Dream',
+      path: 'dreams/new',
+      header: <DreamBuilderHeader navigation={navigation} />,
+    }
+  }
+
+  render() {
+    return <DreamBuilder {...this.props} />
+  }
+}
+
+export default connect(({ dreamBuilder }) => ({ dreamBuilder }), {
   toggleDreamEditText,
   updateDreamText,
-  saveDream,
-  cancelCreateDream,
   updateDreamOptions,
-})(NewDreamScreen)
+})(DreamBuilderScreen)

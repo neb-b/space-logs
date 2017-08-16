@@ -3,7 +3,7 @@
 import React from 'react'
 import { View, Dimensions, TouchableOpacity } from 'react-native'
 import Text from './common/text'
-import Stars from './common/stars'
+import Stars from './stars'
 import styles from './login/styles'
 import LinearGradient from 'react-native-linear-gradient'
 
