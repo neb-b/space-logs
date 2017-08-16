@@ -4,7 +4,7 @@ import React from 'react'
 import { Text, View, Button } from 'react-native'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
-import HeaderButton from './internal/header-button'
+import HeaderButton from './headers/header-button'
 
 class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
