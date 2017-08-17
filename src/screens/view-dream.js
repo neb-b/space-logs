@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 import Screen from './internal/screen'
 import ViewDream from '../components/view-dream'
-import ViewDreamHeader from './headers/view-dream-header.connected'
+import ViewDreamHeader from './header/view-dream-header.connected'
 class ViewDreamScreen extends React.Component {
   static navigationOptions = props => {
     const { navigation } = props

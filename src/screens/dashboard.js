@@ -4,7 +4,7 @@ import { Text, View, Button } from 'react-native'
 import { populateViewDream } from '../redux/actions/dream'
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
-import HeaderButton from './headers/header-button'
+import HeaderButton from './header/header-button'
 import Dashboard from '../components/dashboard'
 
 class SettingsScreen extends React.Component {

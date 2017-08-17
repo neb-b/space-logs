@@ -7,7 +7,7 @@ import {
   updateDreamText,
   updateDreamOptions,
 } from '../redux/actions/dream-builder'
-import DreamBuilderHeader from './headers/dream-builder-header.connected'
+import DreamBuilderHeader from './header/dream-builder-header.connected'
 
 class DreamBuilderScreen extends React.Component {
   static navigationOptions = props => {

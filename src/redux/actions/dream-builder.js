@@ -19,7 +19,6 @@ export const populateDreamBuilder = createAction(POPULATE_DREAM_BUILDER)
 
 const onSaveDream = createAction(SAVE_DREAM)
 export const saveDream = updatedDream => {
-  console.log('updatedDream', updatedDream)
   return (dispatch, getState) => {
     // if the dream doesn't have an id, it is a new dream
     let newDream = updatedDream
