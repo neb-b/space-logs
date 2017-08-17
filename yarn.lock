@@ -2623,7 +2623,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8:
+prop-types@15.5.10, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -2688,6 +2688,12 @@ react-devtools-core@^2.1.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-animatable@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.2.3.tgz#d0f0bd694833b934f3aaa1275739228b786ecb4b"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-autogrow-textinput@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-autogrow-textinput/-/react-native-autogrow-textinput-4.0.0.tgz#0bb9bbf3cf21f8c424c1d297a229953ab2f9ff9b"
@@ -2719,6 +2725,13 @@ react-native-linear-gradient@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.1.0.tgz#2cbf4a061fef5c74d1256da425caf9fe893c94e2"
   dependencies:
     prop-types "^15.5.10"
+
+react-native-modal@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-2.5.0.tgz#a24018ac028e84e6eb8294278fa02720d9f7f320"
+  dependencies:
+    prop-types "15.5.10"
+    react-native-animatable "^1.2.3"
 
 react-native-tab-view@^0.0.65:
   version "0.0.65"

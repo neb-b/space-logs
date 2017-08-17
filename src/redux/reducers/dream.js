@@ -1,5 +1,11 @@
 import { handleActions } from 'redux-actions'
-import { POPULATE_VIEW_DREAM, SAVE_DREAM } from '../constants'
+import {
+  POPULATE_VIEW_DREAM,
+  SAVE_DREAM,
+  CONFIRM_DELETE_DREAM,
+  CANCEL_DELETE_DREAM,
+  DELETE_DREAM,
+} from '../constants'
 
 const initialState = {
   text: '',
@@ -8,6 +14,7 @@ const initialState = {
     wasNightmare: false,
     wasRecurrent: false,
   },
+  confirmDelete: false,
 }
 
 export default handleActions(
@@ -20,7 +27,25 @@ export default handleActions(
     },
     [SAVE_DREAM]: (state, { payload }) => {
       return {
+        ...state,
         ...payload,
+      }
+    },
+    [CONFIRM_DELETE_DREAM]: (state, { payload }) => {
+      return {
+        ...state,
+        confirmDelete: true,
+      }
+    },
+    [DELETE_DREAM]: (state, { payload }) => {
+      return {
+        ...initialState,
+      }
+    },
+    [CANCEL_DELETE_DREAM]: (state, { payload }) => {
+      return {
+        ...state,
+        confirmDelete: false,
       }
     },
   },
