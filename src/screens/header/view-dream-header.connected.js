@@ -15,7 +15,8 @@ import HeaderButton from './header-button'
 import Screen from '../internal/screen'
 import TabIcon from '../internal/tab-icon'
 import ViewDream from '../../components/view-dream'
-import styles from '../../components/dream-builder/styles'
+import styles from './styles'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const DreamBuilderHeader = props => {
   const {
@@ -33,24 +34,37 @@ const DreamBuilderHeader = props => {
       title={title}
       headerLeft={() =>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={{ color: '#fff', fontSize: 16 }}>Back</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Icon
+              name="chevron-left"
+              color="#fff"
+              size={30}
+              style={{ marginLeft: -10 }}
+            />
+            <Text style={{ color: '#fff', fontSize: 18, alignSelf: 'center' }}>
+              Back
+            </Text>
+          </View>
         </TouchableOpacity>}
       headerRight={() =>
         <View style={{ flexDirection: 'row' }}>
-          <HeaderButton
-            text="Delete"
+          <TouchableOpacity
             onPress={() => {
               deleteDream(dream.id)
               navigation.goBack()
             }}
-          />
-          <HeaderButton
-            text="Edit"
+          >
+            <Icon name="delete" color="#f26666" size={30} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.editButton}
             onPress={() => {
               populateDreamBuilder(dream)
               navigation.navigate('DreamBuilder')
             }}
-          />
+          >
+            <Icon name="edit" color="#f7ff62" size={30} />
+          </TouchableOpacity>
         </View>}
     />
   )

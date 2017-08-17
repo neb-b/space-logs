@@ -60,19 +60,24 @@ const headerOptions = {
 
 const MainCardNavigation = StackNavigator(
   {
-    Dashboard: { screen: TabNavigation },
+    Dashboard: { screen: TabNavigation, navigationOptions: headerOptions },
     ViewDream: { screen: ViewDreamScreen, navigationOptions: headerOptions },
   },
-  { headerMode: 'none' }
+  { headerMode: 'screen' }
 )
 
 const AppNavigator = StackNavigator(
   {
     Login: { screen: LoginScreen },
-    Main: { screen: MainCardNavigation, navigationOptions: headerOptions },
+    Main: {
+      screen: MainCardNavigation,
+      navigationOptions: Object.assign({}, headerOptions, {
+        gesturesEnabled: false,
+      }),
+    },
     DreamBuilder: { screen: DreamBuilderNavigation },
   },
-  { initialRoute: 'Login', mode: 'modal' }
+  { initialRoute: 'Login', mode: 'modal', headerMode: 'none' }
 )
 
 export default AppNavigator

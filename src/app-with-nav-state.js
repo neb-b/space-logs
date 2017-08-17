@@ -25,7 +25,7 @@ class AppWithNavigationState extends React.PureComponent {
 
   _handleAppStateChange = nextAppState => {
     const { nav, dispatch } = this.props
-    if (nav.index !== 0) {
+    if (nav.index !== 0 && !__DEV__) {
       dispatch({
         type: 'Navigation/RESET',
         index: 0,

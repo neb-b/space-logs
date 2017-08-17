@@ -1,6 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import Text from '../../components/common/text'
+import styles from './styles'
 
 export default ({
   title,
@@ -8,31 +9,16 @@ export default ({
   headerRight: HeaderRight,
 }) => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop: 30,
-        backgroundColor: '#161616',
-      }}
-    >
-      <View>
+    <View style={styles.container}>
+      <View style={styles.headerItem}>
         <HeaderLeft />
       </View>
-      <View>
-        <Text
-          style={{
-            fontWeight: '600',
-            fontSize: 20,
-            fontFamily: 'Futura-Medium',
-            marginTop: -5,
-            color: '#fff',
-          }}
-        >
+      <View style={styles.headerItem}>
+        <Text style={styles.title}>
           {title}
         </Text>
       </View>
-      <View>
+      <View style={[styles.headerItem, styles.headerRight]}>
         <HeaderRight />
       </View>
     </View>
