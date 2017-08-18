@@ -8,10 +8,12 @@ export default ({
   headerLeft: HeaderLeft,
   headerRight: HeaderRight,
 }) => {
+  const hasHeaderLeft = !!HeaderLeft
+  const hasHeaderRight = !!HeaderRight
   return (
     <View style={styles.container}>
       <View style={styles.headerItem}>
-        <HeaderLeft />
+        {hasHeaderLeft && <HeaderLeft />}
       </View>
       <View style={styles.headerItem}>
         <Text style={styles.title}>
@@ -19,7 +21,7 @@ export default ({
         </Text>
       </View>
       <View style={[styles.headerItem, styles.headerRight]}>
-        <HeaderRight />
+        {hasHeaderRight && <HeaderRight />}
       </View>
     </View>
   )

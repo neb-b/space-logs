@@ -32,4 +32,13 @@ export default StyleSheet.create({
   editButton: {
     paddingLeft: 10,
   },
+  headerText: {
+    color: '#fff',
+    fontSize: 18,
+    alignSelf: 'center',
+  },
+
+  headerBtnsWrapper: { flexDirection: 'row' },
+  backIcon: { marginLeft: -10 },
+  backWrapper: { flexDirection: 'row', alignItems: 'center' },
 })

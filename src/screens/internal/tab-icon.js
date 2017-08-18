@@ -4,7 +4,7 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const pageMap = {
-  newDream: 'settings-system-daydream',
+  home: 'settings-system-daydream',
   stats: 'bubble-chart',
   settings: 'settings',
 }

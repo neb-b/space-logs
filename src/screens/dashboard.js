@@ -6,21 +6,12 @@ import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
 import HeaderButton from './header/header-button'
 import Dashboard from '../components/dashboard'
+import Header from './header/tab-navigation-header.connected'
 
-class SettingsScreen extends React.Component {
+class DashboardScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Dreams',
-    path: 'dreams',
-    headerLeft: null,
-    headerRight: (
-      <HeaderButton
-        type="newDream"
-        onPress={() => navigation.navigate('DreamBuilder')}
-      />
-    ),
-    tabBarIcon: ({ focused }) => {
-      return <TabIcon focused={focused} page="newDream" />
-    },
+    header: <Header title="Dreams" navigation={navigation} />,
+    tabBarIcon: ({ focused }) => <TabIcon focused={focused} page="home" />,
   })
 
   render() {
@@ -33,5 +24,5 @@ class SettingsScreen extends React.Component {
 }
 
 export default connect(({ dreams }) => ({ ...dreams }), { populateViewDream })(
-  SettingsScreen
+  DashboardScreen
 )

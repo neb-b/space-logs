@@ -34,20 +34,18 @@ const DreamBuilderHeader = props => {
       title={title}
       headerLeft={() =>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={styles.backWrapper}>
             <Icon
               name="chevron-left"
               color="#fff"
               size={30}
-              style={{ marginLeft: -10 }}
+              style={styles.backIcon}
             />
-            <Text style={{ color: '#fff', fontSize: 18, alignSelf: 'center' }}>
-              Back
-            </Text>
+            <Text style={styles.headerText}>Back</Text>
           </View>
         </TouchableOpacity>}
       headerRight={() =>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={styles.headerBtnsWrapper}>
           <TouchableOpacity
             onPress={() => {
               confirmDeleteDream()
