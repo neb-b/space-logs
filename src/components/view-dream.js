@@ -9,7 +9,7 @@ import DreamContent from './view-dream/dream-content'
 
 export default props => {
   const { navigation, deleteDream, cancelDeleteDream, dream } = props
-  const { dreamOptions, text, confirmDelete } = dream
+  const { dreamOptions, text, confirmDelete, id } = dream
   const { wasLucid, wasRecurrent, wasNightmare } = dreamOptions
   return (
     <View style={styles.container}>
