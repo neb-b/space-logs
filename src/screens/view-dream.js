@@ -26,7 +26,7 @@ class ViewDreamScreen extends React.Component {
   render() {
     return (
       <Screen scroll>
-        <ViewDream {...this.props.dream} {...this.props} />
+        <ViewDream {...this.props} />
       </Screen>
     )
   }

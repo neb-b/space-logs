@@ -5,43 +5,16 @@ import { View, TouchableOpacity } from 'react-native'
 import Text from './common/text'
 import Modal from 'react-native-modal'
 import styles from './view-dream/styles'
-
-const dreamOptionTexts = {
-  wasLucid: 'I was lucid',
-
-  wasNightmare: 'It was a nightmare',
-
-  wasRecurrent: 'I noticed reoccuring patterns',
-}
+import DreamContent from './view-dream/dream-content'
 
 export default props => {
-  const {
-    navigation,
-    dreamOptions,
-    text,
-    confirmDelete,
-    deleteDream,
-    cancelDeleteDream,
-    id,
-  } = props
+  const { navigation, deleteDream, cancelDeleteDream, dream } = props
+  const { dreamOptions, text, confirmDelete } = dream
   const { wasLucid, wasRecurrent, wasNightmare } = dreamOptions
   return (
     <View style={styles.container}>
-      <View>
-        <View style={styles.dreamOptions}>
-          {Object.keys(dreamOptions).map(key => {
-            const option = dreamOptions[key]
-            return option
-              ? <Text key={key} style={styles.dreamOption}>
-                  {dreamOptionTexts[key]}
-                </Text>
-              : null
-          })}
-        </View>
-        <Text style={styles.dreamText}>
-          {text}
-        </Text>
-      </View>
+      <DreamContent {...dream} />
+
       <Modal
         isVisible={confirmDelete}
         backdropColor="#000000"
@@ -54,12 +27,12 @@ export default props => {
         <View
           style={{
             padding: 30,
-            backgroundColor: '#c9dcff',
+            backgroundColor: '#353875',
             justifyContent: 'flex-end',
             margin: 0,
           }}
         >
-          <Text style={{ fontSize: 18 }}>
+          <Text style={{ fontSize: 18, color: '#ffffff' }}>
             Are you sure you want to delete this dream?
           </Text>
           <TouchableOpacity
@@ -84,7 +57,11 @@ export default props => {
             style={{ padding: 20 }}
             onPress={() => cancelDeleteDream()}
           >
-            <Text style={{ textAlign: 'center', fontWeight: '700' }}>Stop</Text>
+            <Text
+              style={{ textAlign: 'center', fontWeight: '700', color: '#fff' }}
+            >
+              Stop
+            </Text>
           </TouchableOpacity>
         </View>
       </Modal>

@@ -24,7 +24,7 @@ export default class extends PureComponent {
         <TextInput
           style={[styles.input]}
           multiline={true}
-          defaultString="I was having a dream that..."
+          placeholder="I was battling dragons..."
           onChangeText={text => updateDreamText(text)}
           onContentSizeChange={e =>
             this.updateSize(e.nativeEvent.contentSize.height)}

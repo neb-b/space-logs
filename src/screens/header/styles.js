@@ -11,9 +11,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 25,
-    paddingRight: 10,
+    // uneven paddings because of weird icon sizes
+    // hmmmm
+    paddingRight: 5,
     paddingLeft: 10,
-    paddingBottom: 10,
+    paddingBottom: 20,
     backgroundColor: '#161616',
   },
   title: {

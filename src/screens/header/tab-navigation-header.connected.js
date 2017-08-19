@@ -27,7 +27,7 @@ const DreamBuilderHeader = props => {
             style={styles.editButton}
             onPress={() => navigation.navigate('DreamBuilder')}
           >
-            <Icon name="edit" color="#f7ff62" size={30} />
+            <Icon name="add-circle" color="#f7ff62" size={26} />
           </TouchableOpacity>
         </View>}
     />

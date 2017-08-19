@@ -31,15 +31,30 @@ export default props => {
                 navigation.dispatch(viewDream(dream.dreamDate))
               }}
             >
-              <Text style={styles.date}>
-                {moment(dateCreated).format('MMM Do')}
-              </Text>
-              <Text style={styles.dreamText}>
-                {text}
-              </Text>
-              <Text style={styles.dreamOption}>
-                {dreamOptions.wasLucid ? 'was lucid' : null}
-              </Text>
+              <View style={styles.dreamInfoWrapper}>
+                <Text style={styles.date}>
+                  {moment(dateCreated).format('MMM Do')}
+                </Text>
+                <View style={styles.dreamOptionsWrapper}>
+                  {Object.keys(dreamOptions).map(
+                    option =>
+                      dreamOptions[option]
+                        ? <View key={option} style={[styles.dreamOption]}>
+                            <Text
+                              style={[styles.dreamOptionText, styles[option]]}
+                            >
+                              {option.slice(3)}
+                            </Text>
+                          </View>
+                        : null
+                  )}
+                </View>
+              </View>
+              <View style={styles.dreamTextWrapper}>
+                <Text style={styles.dreamText}>
+                  {text ? text : 'No dream details'}
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
         )

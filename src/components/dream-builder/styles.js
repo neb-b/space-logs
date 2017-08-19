@@ -132,5 +132,6 @@ export default StyleSheet.create({
     // borderWidth: 1,
     color: '#fcfcfc',
     fontSize: 15,
+    minHeight: 200,
   },
 })
