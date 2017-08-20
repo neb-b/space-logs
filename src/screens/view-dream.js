@@ -9,7 +9,7 @@ import {
   DeviceEventEmitter,
 } from 'react-native'
 import { connect } from 'react-redux'
-import { cancelDeleteDream, deleteDream } from '../redux/actions/dream'
+import { toggleConfirmDelete, deleteDream } from '../redux/actions/dream'
 import moment from 'moment'
 import Screen from './internal/screen'
 import ViewDream from '../components/view-dream'
@@ -33,6 +33,6 @@ class ViewDreamScreen extends React.Component {
 }
 
 const mapStateToProps = ({ dream }) => ({ dream })
-export default connect(mapStateToProps, { cancelDeleteDream, deleteDream })(
+export default connect(mapStateToProps, { toggleConfirmDelete, deleteDream })(
   ViewDreamScreen
 )

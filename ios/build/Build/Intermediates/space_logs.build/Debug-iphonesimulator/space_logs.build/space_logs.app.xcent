@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>348S7987BH.org.reactjs.native.example.space-logs</string>
+	<string>348S7987BH.com.seanyesmunt.spacelogs</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>348S7987BH.org.reactjs.native.example.space-logs</string>
+		<string>348S7987BH.com.seanyesmunt.spacelogs</string>
 	</array>
 </dict>
 </plist>

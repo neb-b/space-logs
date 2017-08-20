@@ -19,7 +19,7 @@ export default props => {
   return (
     <View style={styles.container}>
       {dreams.map((dream, i) => {
-        const { text, dateCreated, dreamOptions } = dream
+        const { text, dreamDate, dreamOptions } = dream
         return (
           <View key={i} style={styles.dreamWrapper}>
             <TouchableOpacity
@@ -33,7 +33,7 @@ export default props => {
             >
               <View style={styles.dreamInfoWrapper}>
                 <Text style={styles.date}>
-                  {moment(dateCreated).format('MMM Do')}
+                  {moment(dreamDate).format('MMM Do')}
                 </Text>
                 <View style={styles.dreamOptionsWrapper}>
                   {Object.keys(dreamOptions).map(

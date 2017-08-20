@@ -2,19 +2,19 @@ import { handleActions } from 'redux-actions'
 import {
   POPULATE_VIEW_DREAM,
   SAVE_DREAM,
-  CONFIRM_DELETE_DREAM,
-  CANCEL_DELETE_DREAM,
+  TOGGLE_CONFIRM_DELETE,
   DELETE_DREAM,
 } from '../constants'
 
 const initialState = {
   text: '',
+  dreamDate: null,
   dreamOptions: {
     wasLucid: false,
     wasNightmare: false,
     wasRecurrent: false,
   },
-  confirmDelete: false,
+  showDeleteModal: false,
 }
 
 export default handleActions(
@@ -31,21 +31,15 @@ export default handleActions(
         ...payload,
       }
     },
-    [CONFIRM_DELETE_DREAM]: (state, { payload }) => {
+    [TOGGLE_CONFIRM_DELETE]: (state, { payload }) => {
       return {
         ...state,
-        confirmDelete: true,
+        showDeleteModal: !state.showDeleteModal,
       }
     },
     [DELETE_DREAM]: (state, { payload }) => {
       return {
         ...initialState,
-      }
-    },
-    [CANCEL_DELETE_DREAM]: (state, { payload }) => {
-      return {
-        ...state,
-        confirmDelete: false,
       }
     },
   },

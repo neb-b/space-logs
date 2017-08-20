@@ -7,7 +7,6 @@ import {
   DeviceEventEmitter,
 } from 'react-native'
 import { populateDreamBuilder } from '../../redux/actions/dream-builder'
-import { confirmDeleteDream } from '../../redux/actions/dream'
 import Text from '../../components/common/text'
 import moment from 'moment'
 import Header from './header'
@@ -25,7 +24,10 @@ const DreamBuilderHeader = props => {
         <View style={styles.headerBtnsWrapper}>
           <TouchableOpacity
             style={styles.editButton}
-            onPress={() => navigation.navigate('DreamBuilder')}
+            onPress={() => {
+              populateDreamBuilder()
+              navigation.navigate('DreamBuilder')
+            }}
           >
             <Icon name="add-circle" color="#f7ff62" size={26} />
           </TouchableOpacity>
@@ -36,6 +38,5 @@ const DreamBuilderHeader = props => {
 
 const mapStateToProps = ({ dream }) => ({ dream })
 export default connect(mapStateToProps, {
-  confirmDeleteDream,
   populateDreamBuilder,
 })(DreamBuilderHeader)

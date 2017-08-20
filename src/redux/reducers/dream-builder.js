@@ -6,15 +6,19 @@ import {
   CANCEL_DREAM,
   UPDATE_DREAM_OPTIONS,
   POPULATE_DREAM_BUILDER,
+  TOGGLE_EDIT_DATE,
+  UPDATE_DREAM_DATE,
 } from '../constants'
 
 const initialState = {
   text: '',
+  dreamDate: null,
   dreamOptions: {
     wasLucid: false,
     wasNightmare: false,
     wasRecurrent: false,
   },
+  showDateModal: false,
 }
 
 export default handleActions(
@@ -27,19 +31,26 @@ export default handleActions(
       ...state,
       dreamOptions: Object.assign({}, state.dreamOptions, payload),
     }),
-    // dream will be added to dreams reducer
-    // clear out dream info for next addition
-    [SAVE_DREAM]: () => ({
-      ...initialState,
-    }),
-
-    [CANCEL_DREAM]: () => ({
-      ...initialState,
-    }),
     [POPULATE_DREAM_BUILDER]: (state, { payload }) => ({
-      ...state,
+      ...initialState,
       ...payload,
     }),
+    [SAVE_DREAM]: (state, { payload }) => ({
+      ...state,
+      showDateModal: false,
+    }),
+    [TOGGLE_EDIT_DATE]: (state, { payload }) => ({
+      ...state,
+      showDateModal: !state.showDateModal,
+    }),
+    [UPDATE_DREAM_DATE]: (state, { payload }) => {
+      console.log('pyal', payload)
+      return {
+        ...state,
+        dreamDate: payload,
+        showDateModal: false,
+      }
+    },
   },
   initialState
 )

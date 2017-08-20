@@ -18,9 +18,11 @@ export default props => {
     saveDream,
     cancelCreateDream,
     updateDreamOptions,
+    toggleEditDate,
+    showDateModal,
   } = props
 
-  const { dreamOptions, text } = dreamBuilder
+  const { dreamOptions, dreamDate, text } = dreamBuilder
 
   return (
     <LinearGradient
@@ -28,9 +30,11 @@ export default props => {
       style={[styles.container]}
     >
       <ScrollView style={styles.dreamBuilder}>
-        <Text style={styles.dreamDate}>
-          {moment(dreamOptions.dreamDate).format('MMM Do')}
-        </Text>
+        <TouchableOpacity onPress={toggleEditDate}>
+          <Text style={styles.dreamDate}>
+            {moment(dreamDate || Date.now()).format('MMM Do')}
+          </Text>
+        </TouchableOpacity>
         <View style={styles.topItems}>
           <TouchableOpacity
             style={[

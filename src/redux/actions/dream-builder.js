@@ -9,6 +9,8 @@ import {
   CANCEL_DREAM,
   UPDATE_DREAM_OPTIONS,
   POPULATE_DREAM_BUILDER,
+  TOGGLE_EDIT_DATE,
+  UPDATE_DREAM_DATE,
 } from '../constants'
 
 export const toggleDreamEditText = createAction(TOGGLE_EDIT_DREAM_TEXT)
@@ -16,6 +18,8 @@ export const updateDreamText = createAction(UPDATE_DREAM_TEXT)
 export const cancelDream = createAction(CANCEL_DREAM)
 export const updateDreamOptions = createAction(UPDATE_DREAM_OPTIONS)
 export const populateDreamBuilder = createAction(POPULATE_DREAM_BUILDER)
+export const toggleEditDate = createAction(TOGGLE_EDIT_DATE)
+export const updateDreamDate = createAction(UPDATE_DREAM_DATE)
 
 const onSaveDream = createAction(SAVE_DREAM)
 export const saveDream = updatedDream => {
@@ -23,10 +27,10 @@ export const saveDream = updatedDream => {
     // if the dream doesn't have an id, it is a new dream
     let newDream = updatedDream
     if (!updatedDream.id) {
-      newDream = Object.assign({}, newDream, {
-        id: uuid(),
-        dateCreated: new Date().toISOString(),
-      })
+      newDream.id = uuid()
+    }
+    if (!updatedDream.dreamDate) {
+      updatedDream.dreamDate = new Date()
     }
 
     return dispatch(onSaveDream(newDream))

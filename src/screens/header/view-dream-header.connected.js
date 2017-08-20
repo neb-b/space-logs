@@ -7,7 +7,7 @@ import {
   DeviceEventEmitter,
 } from 'react-native'
 import { populateDreamBuilder } from '../../redux/actions/dream-builder'
-import { confirmDeleteDream } from '../../redux/actions/dream'
+import { toggleConfirmDelete } from '../../redux/actions/dream'
 import Text from '../../components/common/text'
 import moment from 'moment'
 import Header from './header'
@@ -21,13 +21,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 const DreamBuilderHeader = props => {
   const {
     saveDream,
-    confirmDeleteDream,
+    toggleConfirmDelete,
     populateDreamBuilder,
     navigation,
     dream,
     nav,
   } = props
-  const title = moment(dream.dateCreated).format('MMM Do')
+  const title = moment(dream.dreamDate).format('MMM Do')
 
   return (
     <Header
@@ -48,7 +48,7 @@ const DreamBuilderHeader = props => {
         <View style={styles.headerBtnsWrapper}>
           <TouchableOpacity
             onPress={() => {
-              confirmDeleteDream()
+              toggleConfirmDelete()
             }}
           >
             <Icon name="delete" color="#f26666" size={30} />
@@ -69,6 +69,6 @@ const DreamBuilderHeader = props => {
 
 const mapStateToProps = ({ dream }) => ({ dream })
 export default connect(mapStateToProps, {
-  confirmDeleteDream,
+  toggleConfirmDelete,
   populateDreamBuilder,
 })(DreamBuilderHeader)
