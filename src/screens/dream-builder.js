@@ -32,7 +32,6 @@ class DreamBuilderScreen extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <DateChanger {...this.props} />
-
         <DreamBuilder {...this.props} />
       </View>
     )
