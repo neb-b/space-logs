@@ -28,6 +28,7 @@
     "react-native": "^0.45.1",
     "react-native-autogrow-textinput": "^4.0.0",
     "react-native-blur": "^3.1.2",
+    "react-native-keyboard-aware-scroll-view": "^0.3.0",
     "react-native-linear-gradient": "^2.1.0",
     "react-native-modal": "^2.5.0",
     "react-native-modal-datetime-picker": "^4.9.0",

@@ -123,11 +123,9 @@ export default StyleSheet.create({
     color: '#fcfcfc',
   },
 
-  inputContainer: {},
-
   input: {
     marginTop: 10,
-    paddingBottom: 50,
+    paddingBottom: 30,
     // borderColor: '#fff',
     // borderWidth: 1,
     color: '#fcfcfc',
