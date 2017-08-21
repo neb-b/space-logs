@@ -7,6 +7,12 @@ import moment from 'moment'
 import Text from './common/text'
 import styles from './dashboard/styles'
 
+const hasActiveDreamOptions = dreamOptions => {
+  const has = Object.keys(dreamOptions).some(key => dreamOptions[key])
+  console.log('has?', has)
+  return has
+}
+
 const viewDream = dreamDate =>
   NavigationActions.navigate({
     routeName: 'ViewDream',
@@ -21,20 +27,24 @@ export default props => {
       {dreams.map((dream, i) => {
         const { text, dreamDate, dreamOptions } = dream
         return (
-          <View key={i} style={styles.dreamWrapper}>
-            <TouchableOpacity
-              onPress={() => {
-                // I am passing the dreamDate through the navigation because the dashboard header
-                // can't access this.props (?) on the first render. Waiting to render and then setting
-                // the title looks terrible. This way it renders the title on first render
-                populateViewDream(dream)
-                navigation.dispatch(viewDream(dream.dreamDate))
-              }}
-            >
-              <View style={styles.dreamInfoWrapper}>
-                <Text style={styles.date}>
-                  {moment(dreamDate).format('MMM Do')}
-                </Text>
+          <TouchableOpacity
+            key={i}
+            style={styles.dreamWrapper}
+            onPress={() => {
+              // I am passing the dreamDate through the navigation because the dashboard header
+              // can't access this.props (?) on the first render. Waiting to render and then setting
+              // the title looks terrible. This way it renders the title on first render
+              populateViewDream(dream)
+              navigation.dispatch(viewDream(dream.dreamDate))
+            }}
+          >
+            <View>
+              <Text style={styles.date}>
+                {moment(dreamDate).format('MMM Do')}
+              </Text>
+            </View>
+            <View>
+              {hasActiveDreamOptions(dreamOptions) &&
                 <View style={styles.dreamOptionsWrapper}>
                   {Object.keys(dreamOptions).map(
                     option =>
@@ -48,15 +58,14 @@ export default props => {
                           </View>
                         : null
                   )}
-                </View>
-              </View>
+                </View>}
               <View style={styles.dreamTextWrapper}>
                 <Text style={styles.dreamText}>
                   {text ? text : 'No dream details'}
                 </Text>
               </View>
-            </TouchableOpacity>
-          </View>
+            </View>
+          </TouchableOpacity>
         )
       })}
     </View>

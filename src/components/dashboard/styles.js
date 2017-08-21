@@ -11,9 +11,10 @@ export default StyleSheet.create({
   },
 
   dreamWrapper: {
-    marginBottom: 10,
-    paddingTop: 10,
-    paddingBottom: 30,
+    flexDirection: 'row',
+    marginBottom: 20,
+    paddingTop: 20,
+    paddingBottom: 40,
     overflow: 'hidden',
     borderBottomWidth: 1,
     borderBottomColor: '#39356c80',
@@ -24,19 +25,15 @@ export default StyleSheet.create({
     fontSize: 18,
   },
 
-  dreamInfoWrapper: {
-    flexDirection: 'row',
-  },
-
   dreamOptionsWrapper: {
     flexDirection: 'row',
-    paddingLeft: 20,
   },
 
   dreamOptionText: {
     fontSize: 14,
     color: '#f5f5f5',
     paddingLeft: 10,
+    paddingBottom: 10,
   },
 
   wasLucid: {
@@ -48,12 +45,13 @@ export default StyleSheet.create({
   wasRecurrent: {
     color: '#f6a63b',
   },
+
   dreamTextWrapper: {
     maxHeight: 250,
   },
   dreamText: {
     fontSize: 16,
-    marginTop: 20,
     color: '#f5f5f5',
+    paddingLeft: 10,
   },
 })

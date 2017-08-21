@@ -12,7 +12,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
-    borderBottomColor: '#887efb80',
+    borderBottomColor: '#39356c80',
   },
   listItemText: {
     color: '#fff',

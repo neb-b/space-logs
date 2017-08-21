@@ -5,7 +5,7 @@ import { View, TouchableOpacity, Switch } from 'react-native'
 import Text from './common/text'
 import styles from './settings/styles'
 
-const settings = ['Morning reminders', 'Reality checks']
+const settings = ['Require passcode', 'Morning reminders', 'Reality checks']
 
 export default props => {
   return (
