@@ -23,6 +23,6 @@ class DashboardScreen extends React.Component {
   }
 }
 
-export default connect(({ dreams }) => ({ ...dreams }), { populateViewDream })(
-  DashboardScreen
-)
+export default connect(({ settings, dreams }) => ({ settings, ...dreams }), {
+  populateViewDream,
+})(DashboardScreen)

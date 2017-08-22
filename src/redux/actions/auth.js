@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import { POPULATE_VIEW_DREAM, DELETE_DREAM } from '../constants'
+import { AUTH, SKIP_PASSCODE } from '../constants'
 
-export const populateViewDream = createAction(POPULATE_VIEW_DREAM)
-export const deleteDream = createAction(DELETE_DREAM)
+export const onAuth = createAction(AUTH)
+export const skipPasscode = createAction(SKIP_PASSCODE)

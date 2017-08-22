@@ -4,11 +4,12 @@ import React from 'react'
 import { View, Button, TouchableOpacity, AppState, Alert } from 'react-native'
 import Text from '../components/common/text'
 import { connect } from 'react-redux'
+import { onAuth, skipPasscode } from '../redux/actions/auth'
 import Screen from './internal/screen'
-import Login from '../components/login'
+import Auth from '../components/auth'
 import TouchID from 'react-native-touch-id'
 
-class LoginScreen extends React.Component {
+class AuthScreen extends React.Component {
   static navigationOptions = props => {
     return {
       header: null,
@@ -41,12 +42,19 @@ class LoginScreen extends React.Component {
   // }
 
   render() {
+    const { auth, settings } = this.props
+    const { loaded } = settings
+
     return (
       <Screen>
-        <Login {...this.props} touchId={this._touchId.bind(this)} />
+        {loaded &&
+          <Auth {...this.props} {...auth} touchId={this._touchId.bind(this)} />}
       </Screen>
     )
   }
 }
 
-export default connect(null, {})(LoginScreen)
+export default connect(({ settings, auth }) => ({ settings, auth }), {
+  onAuth,
+  skipPasscode,
+})(AuthScreen)

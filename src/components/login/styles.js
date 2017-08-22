@@ -20,4 +20,16 @@ export default StyleSheet.create({
   loginText: {
     fontSize: 16,
   },
+
+  authButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 20,
+    width: 190,
+    height: 50,
+    padding: 20,
+    backgroundColor: '#19b3db',
+    borderRadius: 10,
+  },
 })

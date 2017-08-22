@@ -29,7 +29,7 @@ class AppWithNavigationState extends React.PureComponent {
       dispatch({
         type: 'Navigation/RESET',
         index: 0,
-        actions: [{ type: 'Navigate', routeName: 'Login' }],
+        actions: [{ type: 'Navigate', routeName: 'Auth' }],
       })
     }
   }

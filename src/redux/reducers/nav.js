@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import AppNavigator from '../../navigation'
 
 // setup the initial screen that react-navigation should use
-const firstAction = AppNavigator.router.getActionForPathAndParams('Login')
+const firstAction = AppNavigator.router.getActionForPathAndParams('Auth')
 const initialNavState = AppNavigator.router.getStateForAction(
   AppNavigator.router.getStateForAction(firstAction)
 )
