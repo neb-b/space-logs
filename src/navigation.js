@@ -44,6 +44,14 @@ const DreamBuilderNavigation = StackNavigator(
     initialRoute: 'Builder',
   }
 )
+const PassCodeBuilderNavigation = StackNavigator(
+  {
+    AuthModal: { screen: AuthScreen },
+  },
+  {
+    initialRoute: 'AuthModal',
+  }
+)
 
 const headerOptions = {
   headerTintColor: 'white',
@@ -76,6 +84,7 @@ const AppNavigator = StackNavigator(
       }),
     },
     DreamBuilder: { screen: DreamBuilderNavigation },
+    PassCodeBuilder: { screen: PassCodeBuilderNavigation },
   },
   { initialRoute: 'Auth', mode: 'modal', headerMode: 'none' }
 )

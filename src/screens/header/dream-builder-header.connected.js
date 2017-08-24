@@ -13,7 +13,6 @@ import styles from '../../components/dream-builder/styles'
 
 const DreamBuilderHeader = props => {
   const { saveDream, cancelDream, navigation, dreamBuilder, nav } = props
-  console.log('save', dreamBuilder)
   return (
     <View style={styles.headerWrapper}>
       <Stars height={80} />

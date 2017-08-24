@@ -8,18 +8,19 @@ import styles from './settings/styles'
 const settings = ['Require passcode', 'Morning reminders', 'Reality checks']
 
 export default props => {
+  const { auth, togglePassCodeRequired, deletePassCode } = props
   return (
     <View style={styles.container}>
-      {settings.map(setting => {
-        return (
-          <View style={styles.listItem} key={setting}>
-            <Text style={styles.listItemText}>
-              {setting}
-            </Text>
-            <Switch />
-          </View>
-        )
-      })}
+      <View style={styles.listItem}>
+        <Text style={styles.listItemText}>Require a passcode</Text>
+        <Switch
+          value={auth.passCodeRequired}
+          onValueChange={() => {
+            console.log('???')
+            togglePassCodeRequired()
+          }}
+        />
+      </View>
     </View>
   )
 }

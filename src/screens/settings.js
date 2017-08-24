@@ -1,7 +1,10 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
 import { Text, View, Button } from 'react-native'
+import { togglePassCodeRequired, deletePassCode } from '../redux/actions/auth'
+console.log('togg', togglePassCodeRequired)
 import Screen from './internal/screen'
 import TabIcon from './internal/tab-icon'
 import Header from './header/tab-navigation-header.connected'
@@ -13,6 +16,13 @@ class SettingsScreen extends React.Component {
     tabBarIcon: ({ focused }) => <TabIcon focused={focused} page="settings" />,
   })
 
+  componentDidUpdate() {
+    const { navigation, auth } = this.props
+    if (auth.passCodeRequired && !auth.passCode) {
+      navigation.navigate('AuthModal')
+    }
+  }
+
   render() {
     return (
       <Screen scroll>
@@ -22,4 +32,7 @@ class SettingsScreen extends React.Component {
   }
 }
 
-export default SettingsScreen
+export default connect(({ auth }) => ({ auth }), {
+  togglePassCodeRequired,
+  deletePassCode,
+})(SettingsScreen)

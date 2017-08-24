@@ -1,11 +1,16 @@
 import { handleActions } from 'redux-actions'
-import { AUTH, SKIP_PASSCODE } from '../constants'
+import {
+  LOGIN,
+  SKIP_PASSCODE,
+  TOGGLE_PASSCODE_REQUIRED,
+  CREATE_PASSCODE,
+} from '../constants'
 
 const initialState = {
   isAuthorized: false,
   isFirstOpen: true,
-  passcodeRequired: false,
-  hasPasscode: false,
+  passCodeRequired: false,
+  passCode: null,
 }
 
 export default handleActions(
@@ -24,6 +29,25 @@ export default handleActions(
         isFirstOpen: false,
       }
     },
+    [TOGGLE_PASSCODE_REQUIRED]: state => {
+      const newPassCodeRequired = !state.passCodeRequired
+      console.log('toggling')
+      return {
+        ...state,
+        passCodeRequired: newPassCodeRequired,
+        // delete passCode if passCodeRequired is false, I will probably break this out
+        passCode: newPassCodeRequired ? state.passCode : null,
+      }
+    },
+    [CREATE_PASSCODE]: (state, { payload }) => ({
+      ...state,
+      passCode: payload,
+      isAuthorized: true,
+    }),
+    [LOGIN]: (state, { payload }) => ({
+      ...state,
+      isAuthorized: state.passCode === payload,
+    }),
   },
   initialState
 )

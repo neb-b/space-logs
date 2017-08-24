@@ -4,16 +4,16 @@ import React from 'react'
 import { View, Dimensions, TouchableOpacity } from 'react-native'
 import Text from './common/text'
 import Stars from './stars'
-import styles from './login/styles'
+import styles from './auth/styles'
 import LinearGradient from 'react-native-linear-gradient'
 
 export default class extends React.PureComponent {
   componentDidMount() {
     // app is loaded, now decided what to do with auth flow
     const { navigation, auth, settings } = this.props
-    const { passcodeRequired, isFirstOpen } = auth
+    const { passCodeRequired, isFirstOpen } = auth
 
-    if (!passcodeRequired && !isFirstOpen) {
+    if (!passCodeRequired && !isFirstOpen) {
       navigation.navigate('Main')
     }
   }
@@ -21,15 +21,17 @@ export default class extends React.PureComponent {
   render() {
     const {
       navigation,
-      onAuth,
-      passcodeRequired,
+      login,
+      passCodeRequired,
       isFirstOpen,
       updatePasscode,
       skipPasscode,
+      passCode,
+      createPasscode,
     } = this.props
 
     return (
-      <View>
+      <View style={styles.authWrapper}>
         {isFirstOpen &&
           <View style={{ flex: 1, alignItems: 'center', paddingTop: 200 }}>
             <Text style={{ color: '#fff' }}>Welcome!</Text>
@@ -50,15 +52,27 @@ export default class extends React.PureComponent {
             </TouchableOpacity>
           </View>}
 
-        {passcodeRequired &&
+        {passCodeRequired &&
           !isFirstOpen &&
           <LinearGradient
             colors={['#080808', '#1b174e']}
             style={[styles.container]}
           >
-            <TouchableOpacity style={styles.login} onPress={onAuth}>
-              <Text style={styles.loginText}>Login</Text>
-            </TouchableOpacity>
+            {passCode
+              ? <TouchableOpacity style={styles.login} onPress={() => login(1)}>
+                  <Text style={styles.loginText}>Login</Text>
+                </TouchableOpacity>
+              : <View
+                  style={{ flex: 1, alignItems: 'center', paddingTop: 200 }}
+                >
+                  <Text style={{ color: '#fff' }}>Choose a passcode</Text>
+                  <TouchableOpacity
+                    style={styles.login}
+                    onPress={() => createPasscode(1)}
+                  >
+                    <Text style={styles.loginText}>1</Text>
+                  </TouchableOpacity>
+                </View>}
           </LinearGradient>}
       </View>
     )

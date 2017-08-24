@@ -22,6 +22,7 @@ export const toggleEditDate = createAction(TOGGLE_EDIT_DATE)
 export const updateDreamDate = createAction(UPDATE_DREAM_DATE)
 
 const onSaveDream = createAction(SAVE_DREAM)
+
 export const saveDream = updatedDream => {
   return (dispatch, getState) => {
     // if the dream doesn't have an id, it is a new dream
